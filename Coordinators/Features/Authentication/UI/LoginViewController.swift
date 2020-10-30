@@ -3,10 +3,49 @@
 //
 
 import UIKit
+import SnapKit
 
-class LoginViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .yellow
+class LoginViewController: ViewController {
+    private let username: TextField = {
+        TextField(placeholder: "Username")
+    }()
+    
+    private let password: TextField = {
+        let tf = TextField(placeholder: "Password")
+        tf.isSecureTextEntry = true
+        return tf
+    }()
+    
+    private let loginButton: UIButton = {
+        let btn = Button()
+        btn.setTitle("Login", for: .normal)
+        return btn
+    }()
+    
+    override func setup() {
+        title = "Login"
+        view.backgroundColor = UIColor(red: 0.16, green: 0.21, blue: 0.58, alpha: 1)
+        setupLayout()
+    }
+}
+
+private extension LoginViewController {
+    func setupLayout() {
+        let stack = VStack([
+            username,
+            password,
+            Spaced(Centered(loginButton), 32)
+        ], spacing: 16)
+        
+        view.addSubview(stack)
+        
+        stack.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.width.equalTo(300)
+        }
+        
+        loginButton.snp.makeConstraints {
+            $0.width.equalToSuperview().dividedBy(2)
+        }
     }
 }
