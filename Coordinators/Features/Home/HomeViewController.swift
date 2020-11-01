@@ -10,4 +10,3 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .blue
     }
 }
-

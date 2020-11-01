@@ -4,39 +4,44 @@
 
 import UIKit
 
-protocol Coordinator {
-    func start()
-}
-
-class AppCoordinator {
-    private let navigationController: UINavigationController
-    private var children: [Coordinator] = []
-    
+class AppCoordinator: Coordinator {
+    private let navigationController: NavigationController
     private var isLoggedIn = false
     
-    init(navigationController: UINavigationController) {
+    var children: [Coordinator] = []
+    
+    init(navigationController: NavigationController) {
         self.navigationController = navigationController
     }
     
     func start() {
-        isLoggedIn ? showHome() : showAuthentication()
+        isLoggedIn ? showMain() : showAuthentication()
     }
 }
 
 private extension AppCoordinator {
     func showAuthentication() {
         let coordinator = AuthenticationCoordinator(
-            navigationController: navigationController
+            navigationController: navigationController,
+            delegate: self
         )
         coordinator.start()
-        children.append(coordinator)
+        attach(coordinator)
     }
     
-    func showHome() {
+    func showMain() {
         let coordinator = HomeCoordinator(
             navigationController: navigationController
         )
         coordinator.start()
-        children.append(coordinator)
+        attach(coordinator)
+    }
+}
+
+extension AppCoordinator: AuthenticationCoordinatorDelegate {
+    func didAuthenticate(_ coordinator: Coordinator) {
+        detach(coordinator)
+        navigationController.clearViewControllers()
+        showMain()
     }
 }

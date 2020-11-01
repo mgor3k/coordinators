@@ -17,4 +17,12 @@ class NavigationController: UINavigationController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func clearViewControllers() {
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = .fade
+        view.layer.add(transition, forKey: nil)
+        viewControllers = []
+    }
 }

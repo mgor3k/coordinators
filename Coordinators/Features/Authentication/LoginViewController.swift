@@ -16,11 +16,21 @@ class LoginViewController: ViewController {
         return tf
     }()
     
-    private let loginButton: UIButton = {
+    private lazy var loginButton: UIButton = {
         let btn = Button()
         btn.setTitle("Login", for: .normal)
+        btn.addAction(.init(handler: { [weak self] _ in
+            self?.loginButtonTapped()
+        }), for: .touchUpInside)
         return btn
     }()
+    
+    private let viewModel: LoginViewModel
+    
+    init(viewModel: LoginViewModel) {
+        self.viewModel = viewModel
+        super.init()
+    }
     
     override func setup() {
         title = "Login"
@@ -47,5 +57,9 @@ private extension LoginViewController {
         loginButton.snp.makeConstraints {
             $0.width.equalToSuperview().dividedBy(2)
         }
+    }
+    
+    func loginButtonTapped() {
+        viewModel.authenticate(username: username.text ?? "", password: password.text ?? "")
     }
 }
