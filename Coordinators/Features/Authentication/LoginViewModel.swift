@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import Combine
 
 protocol LoginDelegate: class {
     func didLogin()
@@ -10,14 +11,22 @@ protocol LoginDelegate: class {
     func willSignup()
 }
 
-class LoginViewModel {
+class LoginViewModel: ObservableObject {
     weak var delegate: LoginDelegate?
     
     let screenName = "Login"
     
+    @Published var isLoading = false
+    
     func authenticate(username: String, password: String) {
-        // TODO: Simulate request + combine
-        delegate?.didLogin()
+        isLoading = true
+        
+        DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
+            self?.isLoading = false
+            DispatchQueue.main.async {
+                self?.delegate?.didLogin()
+            }
+        }
     }
     
     func forgotPassword() {

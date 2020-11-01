@@ -14,6 +14,7 @@
 		BF3AA694254EFED1006ADE3A /* PasswordReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA693254EFED1006ADE3A /* PasswordReminderViewController.swift */; };
 		BF3AA698254EFF66006ADE3A /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA697254EFF66006ADE3A /* SignupViewController.swift */; };
 		BF3AA69C254F04BA006ADE3A /* SecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA69B254F04BA006ADE3A /* SecureTextField.swift */; };
+		BF3AA6A2254F5304006ADE3A /* LoadableRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA6A1254F5304006ADE3A /* LoadableRoundedButton.swift */; };
 		BF52695B254CA76800638F23 /* StackItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52695A254CA76800638F23 /* StackItem.swift */; };
 		BF52695E254CA78100638F23 /* Centered.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52695D254CA78100638F23 /* Centered.swift */; };
 		BF5FA6B5254C99520093BBBD /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FA6B4254C99520093BBBD /* TextField.swift */; };
@@ -46,6 +47,7 @@
 		BF3AA693254EFED1006ADE3A /* PasswordReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordReminderViewController.swift; sourceTree = "<group>"; };
 		BF3AA697254EFF66006ADE3A /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		BF3AA69B254F04BA006ADE3A /* SecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureTextField.swift; sourceTree = "<group>"; };
+		BF3AA6A1254F5304006ADE3A /* LoadableRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableRoundedButton.swift; sourceTree = "<group>"; };
 		BF52695A254CA76800638F23 /* StackItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackItem.swift; sourceTree = "<group>"; };
 		BF52695D254CA78100638F23 /* Centered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Centered.swift; sourceTree = "<group>"; };
 		BF5FA6B4254C99520093BBBD /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			children = (
 				BF5FA6BF254CA3340093BBBD /* Button.swift */,
 				BFB7FC76254EFC9000DE13CB /* RoundedButton.swift */,
+				BF3AA6A1254F5304006ADE3A /* LoadableRoundedButton.swift */,
 				BFB7FC72254EFC4B00DE13CB /* InlineButton.swift */,
 			);
 			path = Buttons;
@@ -332,6 +335,7 @@
 				BFB7FC6D254EF99D00DE13CB /* SettingsViewController.swift in Sources */,
 				BFB7FC73254EFC4B00DE13CB /* InlineButton.swift in Sources */,
 				BFB7FC77254EFC9000DE13CB /* RoundedButton.swift in Sources */,
+				BF3AA6A2254F5304006ADE3A /* LoadableRoundedButton.swift in Sources */,
 				BFB7FC70254EF9B900DE13CB /* SettingsCoordinator.swift in Sources */,
 				BFE7A4F1254EF08300E64EA5 /* TabBarController.swift in Sources */,
 				BF5FA6BA254C9A920093BBBD /* ViewController.swift in Sources */,

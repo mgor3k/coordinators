@@ -4,16 +4,18 @@
 
 import UIKit
 import SnapKit
+import Combine
 
 class LoginViewController: ViewController {
     private let username = TextField(placeholder: "Username")
     private let password = SecureTextField(placeholder: "Password")
     
-    private let loginButton = RoundedButton("Login")
+    private let loginButton = LoadableRoundedButton("Login")
     private let forgotButton = InlineButton("Forgot password?")
     private let signupButton = InlineButton("New user? ", highlighted: "Signup")
     
     private let viewModel: LoginViewModel
+    private var subscriptions: Set<AnyCancellable> = []
     
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
@@ -25,6 +27,7 @@ class LoginViewController: ViewController {
         view.backgroundColor = UIColor(red: 0.16, green: 0.21, blue: 0.58, alpha: 1)
         setupLayout()
         setupActions()
+        setupBindings()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -67,5 +70,13 @@ private extension LoginViewController {
         signupButton.addAction { [unowned viewModel] _ in
             viewModel.signup()
         }
+    }
+    
+    func setupBindings() {
+        viewModel.$isLoading
+            .dropFirst()
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isLoading, on: loginButton)
+            .store(in: &subscriptions)
     }
 }
