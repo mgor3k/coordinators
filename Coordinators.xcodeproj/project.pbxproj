@@ -10,6 +10,10 @@
 		BF062F5E254CAEDE003E1662 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF062F5D254CAEDE003E1662 /* LoginViewModel.swift */; };
 		BF062F64254CB330003E1662 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF062F63254CB330003E1662 /* Coordinator.swift */; };
 		BF1FBB19254C96E900FD3BD0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BF1FBB18254C96E900FD3BD0 /* SnapKit */; };
+		BF3AA691254EFD84006ADE3A /* Trailing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA690254EFD84006ADE3A /* Trailing.swift */; };
+		BF3AA694254EFED1006ADE3A /* PasswordReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA693254EFED1006ADE3A /* PasswordReminderViewController.swift */; };
+		BF3AA698254EFF66006ADE3A /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA697254EFF66006ADE3A /* SignupViewController.swift */; };
+		BF3AA69C254F04BA006ADE3A /* SecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA69B254F04BA006ADE3A /* SecureTextField.swift */; };
 		BF52695B254CA76800638F23 /* StackItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52695A254CA76800638F23 /* StackItem.swift */; };
 		BF52695E254CA78100638F23 /* Centered.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52695D254CA78100638F23 /* Centered.swift */; };
 		BF5FA6B5254C99520093BBBD /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FA6B4254C99520093BBBD /* TextField.swift */; };
@@ -21,6 +25,8 @@
 		BFB7FC65254EF75E00DE13CB /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7FC64254EF75E00DE13CB /* UIWindow+.swift */; };
 		BFB7FC6D254EF99D00DE13CB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7FC6C254EF99D00DE13CB /* SettingsViewController.swift */; };
 		BFB7FC70254EF9B900DE13CB /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7FC6F254EF9B900DE13CB /* SettingsCoordinator.swift */; };
+		BFB7FC73254EFC4B00DE13CB /* InlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7FC72254EFC4B00DE13CB /* InlineButton.swift */; };
+		BFB7FC77254EFC9000DE13CB /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7FC76254EFC9000DE13CB /* RoundedButton.swift */; };
 		BFBD1D82254C88FA00E6B750 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD1D81254C88FA00E6B750 /* AppDelegate.swift */; };
 		BFBD1D84254C88FA00E6B750 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD1D83254C88FA00E6B750 /* SceneDelegate.swift */; };
 		BFBD1D86254C88FA00E6B750 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD1D85254C88FA00E6B750 /* HomeViewController.swift */; };
@@ -36,6 +42,10 @@
 /* Begin PBXFileReference section */
 		BF062F5D254CAEDE003E1662 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		BF062F63254CB330003E1662 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		BF3AA690254EFD84006ADE3A /* Trailing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trailing.swift; sourceTree = "<group>"; };
+		BF3AA693254EFED1006ADE3A /* PasswordReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordReminderViewController.swift; sourceTree = "<group>"; };
+		BF3AA697254EFF66006ADE3A /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		BF3AA69B254F04BA006ADE3A /* SecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureTextField.swift; sourceTree = "<group>"; };
 		BF52695A254CA76800638F23 /* StackItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackItem.swift; sourceTree = "<group>"; };
 		BF52695D254CA78100638F23 /* Centered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Centered.swift; sourceTree = "<group>"; };
 		BF5FA6B4254C99520093BBBD /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -47,6 +57,8 @@
 		BFB7FC64254EF75E00DE13CB /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
 		BFB7FC6C254EF99D00DE13CB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BFB7FC6F254EF9B900DE13CB /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		BFB7FC72254EFC4B00DE13CB /* InlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineButton.swift; sourceTree = "<group>"; };
+		BFB7FC76254EFC9000DE13CB /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		BFBD1D7E254C88FA00E6B750 /* Coordinators.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coordinators.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFBD1D81254C88FA00E6B750 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFBD1D83254C88FA00E6B750 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,8 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				BF5FA6C8254CA6050093BBBD /* Stacks */,
-				BF5FA6B4254C99520093BBBD /* TextField.swift */,
-				BF5FA6BF254CA3340093BBBD /* Button.swift */,
+				BFB7FC75254EFC6900DE13CB /* Buttons */,
+				BF3AA69A254F04A6006ADE3A /* TextFields */,
 				BF5FA6B9254C9A920093BBBD /* ViewController.swift */,
 				BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */,
 				BF5FA6BC254C9B770093BBBD /* NavigationController.swift */,
@@ -109,6 +121,8 @@
 			children = (
 				BFBD1DA1254C936500E6B750 /* AuthenticationCoordinator.swift */,
 				BFBD1DA4254C948C00E6B750 /* LoginViewController.swift */,
+				BF3AA693254EFED1006ADE3A /* PasswordReminderViewController.swift */,
+				BF3AA697254EFF66006ADE3A /* SignupViewController.swift */,
 				BF062F5D254CAEDE003E1662 /* LoginViewModel.swift */,
 			);
 			path = Authentication;
@@ -121,6 +135,15 @@
 				BFBD1D85254C88FA00E6B750 /* HomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		BF3AA69A254F04A6006ADE3A /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				BF5FA6B4254C99520093BBBD /* TextField.swift */,
+				BF3AA69B254F04BA006ADE3A /* SecureTextField.swift */,
+			);
+			path = TextFields;
 			sourceTree = "<group>";
 		};
 		BF526960254CA78F00638F23 /* Model */ = {
@@ -148,6 +171,7 @@
 				BF5FA6C2254CA53B0093BBBD /* HStack.swift */,
 				BF5FA6C5254CA6010093BBBD /* VStack.swift */,
 				BF52695D254CA78100638F23 /* Centered.swift */,
+				BF3AA690254EFD84006ADE3A /* Trailing.swift */,
 			);
 			path = Stacks;
 			sourceTree = "<group>";
@@ -158,6 +182,16 @@
 				BFB7FC64254EF75E00DE13CB /* UIWindow+.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BFB7FC75254EFC6900DE13CB /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				BF5FA6BF254CA3340093BBBD /* Button.swift */,
+				BFB7FC76254EFC9000DE13CB /* RoundedButton.swift */,
+				BFB7FC72254EFC4B00DE13CB /* InlineButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		BFBD1D75254C88F900E6B750 = {
@@ -294,12 +328,16 @@
 				BFBD1DA5254C948C00E6B750 /* LoginViewController.swift in Sources */,
 				BFBD1D9E254C926600E6B750 /* AppCoordinator.swift in Sources */,
 				BFBD1DA2254C936500E6B750 /* AuthenticationCoordinator.swift in Sources */,
+				BF3AA69C254F04BA006ADE3A /* SecureTextField.swift in Sources */,
 				BFB7FC6D254EF99D00DE13CB /* SettingsViewController.swift in Sources */,
+				BFB7FC73254EFC4B00DE13CB /* InlineButton.swift in Sources */,
+				BFB7FC77254EFC9000DE13CB /* RoundedButton.swift in Sources */,
 				BFB7FC70254EF9B900DE13CB /* SettingsCoordinator.swift in Sources */,
 				BFE7A4F1254EF08300E64EA5 /* TabBarController.swift in Sources */,
 				BF5FA6BA254C9A920093BBBD /* ViewController.swift in Sources */,
 				BF062F5E254CAEDE003E1662 /* LoginViewModel.swift in Sources */,
 				BF5FA6B5254C99520093BBBD /* TextField.swift in Sources */,
+				BF3AA694254EFED1006ADE3A /* PasswordReminderViewController.swift in Sources */,
 				BFBD1D86254C88FA00E6B750 /* HomeViewController.swift in Sources */,
 				BFBD1D82254C88FA00E6B750 /* AppDelegate.swift in Sources */,
 				BF5FA6BD254C9B770093BBBD /* NavigationController.swift in Sources */,
@@ -308,7 +346,9 @@
 				BF5FA6C6254CA6010093BBBD /* VStack.swift in Sources */,
 				BF5FA6C3254CA53B0093BBBD /* HStack.swift in Sources */,
 				BFB7FC65254EF75E00DE13CB /* UIWindow+.swift in Sources */,
+				BF3AA691254EFD84006ADE3A /* Trailing.swift in Sources */,
 				BFBD1D84254C88FA00E6B750 /* SceneDelegate.swift in Sources */,
+				BF3AA698254EFF66006ADE3A /* SignupViewController.swift in Sources */,
 				BF5FA6C0254CA3340093BBBD /* Button.swift in Sources */,
 				BF52695B254CA76800638F23 /* StackItem.swift in Sources */,
 				BF52695E254CA78100638F23 /* Centered.swift in Sources */,

@@ -31,10 +31,28 @@ private extension AuthenticationCoordinator {
         let vc = LoginViewController(viewModel: viewModel)
         navigationController.show(vc, sender: self)
     }
+    
+    func showForgotPassword() {
+        let vc = PasswordReminderViewController()
+        navigationController.show(vc, sender: self)
+    }
+    
+    func showSignup() {
+        let vc = SignupViewController()
+        navigationController.show(vc, sender: self)
+    }
 }
 
 extension AuthenticationCoordinator: LoginDelegate {
     func didLogin() {
         delegate?.didAuthenticate(self)
+    }
+    
+    func willRememberPassword() {
+        showForgotPassword()
+    }
+    
+    func willSignup() {
+        showSignup()
     }
 }

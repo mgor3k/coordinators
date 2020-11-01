@@ -6,6 +6,8 @@ import Foundation
 
 protocol LoginDelegate: class {
     func didLogin()
+    func willRememberPassword()
+    func willSignup()
 }
 
 class LoginViewModel {
@@ -16,5 +18,13 @@ class LoginViewModel {
     func authenticate(username: String, password: String) {
         // TODO: Simulate request + combine
         delegate?.didLogin()
+    }
+    
+    func forgotPassword() {
+        delegate?.willRememberPassword()
+    }
+    
+    func signup() {
+        delegate?.willSignup()
     }
 }

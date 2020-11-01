@@ -6,24 +6,12 @@ import UIKit
 import SnapKit
 
 class LoginViewController: ViewController {
-    private let username: TextField = {
-        TextField(placeholder: "Username")
-    }()
+    private let username = TextField(placeholder: "Username")
+    private let password = SecureTextField(placeholder: "Password")
     
-    private let password: TextField = {
-        let tf = TextField(placeholder: "Password")
-        tf.isSecureTextEntry = true
-        return tf
-    }()
-    
-    private lazy var loginButton: UIButton = {
-        let btn = Button()
-        btn.setTitle("Login", for: .normal)
-        btn.addAction(.init(handler: { [weak self] _ in
-            self?.loginButtonTapped()
-        }), for: .touchUpInside)
-        return btn
-    }()
+    private let loginButton = RoundedButton("Login")
+    private let forgotButton = InlineButton("Forgot password?")
+    private let signupButton = InlineButton("New user? ", highlighted: "Signup")
     
     private let viewModel: LoginViewModel
     
@@ -36,6 +24,12 @@ class LoginViewController: ViewController {
         title = viewModel.screenName
         view.backgroundColor = UIColor(red: 0.16, green: 0.21, blue: 0.58, alpha: 1)
         setupLayout()
+        setupActions()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        view.endEditing(true)
     }
 }
 
@@ -44,22 +38,34 @@ private extension LoginViewController {
         let stack = VStack([
             username,
             password,
-            Spaced(Centered(loginButton), 32)
+            Trailing(forgotButton),
+            Spaced(Centered(loginButton), 32),
+            Centered(signupButton)
         ], spacing: 16)
         
         view.addSubview(stack)
         
         stack.snp.makeConstraints {
-            $0.center.equalToSuperview()
-            $0.width.equalTo(300)
-        }
-        
-        loginButton.snp.makeConstraints {
-            $0.width.equalToSuperview().dividedBy(2)
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().offset(48)
+            $0.trailing.equalToSuperview().offset(-48)
         }
     }
     
-    func loginButtonTapped() {
-        viewModel.authenticate(username: username.text ?? "", password: password.text ?? "")
+    func setupActions() {
+        loginButton.addAction { [unowned self] _ in
+            self.viewModel.authenticate(
+                username: self.username.text ?? "",
+                password: self.password.text ?? ""
+            )
+        }
+        
+        forgotButton.addAction { [unowned viewModel] _ in
+            viewModel.forgotPassword()
+        }
+        
+        signupButton.addAction { [unowned viewModel] _ in
+            viewModel.signup()
+        }
     }
 }
