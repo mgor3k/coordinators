@@ -33,7 +33,7 @@ class LoginViewController: ViewController {
     }
     
     override func setup() {
-        title = "Login"
+        title = viewModel.screenName
         view.backgroundColor = UIColor(red: 0.16, green: 0.21, blue: 0.58, alpha: 1)
         setupLayout()
     }

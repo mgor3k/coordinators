@@ -11,6 +11,8 @@ protocol LoginDelegate: class {
 class LoginViewModel {
     weak var delegate: LoginDelegate?
     
+    let screenName = "Login"
+    
     func authenticate(username: String, password: String) {
         // TODO: Simulate request + combine
         delegate?.didLogin()
