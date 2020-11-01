@@ -18,6 +18,7 @@
 		BF5FA6C0254CA3340093BBBD /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FA6BF254CA3340093BBBD /* Button.swift */; };
 		BF5FA6C3254CA53B0093BBBD /* HStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FA6C2254CA53B0093BBBD /* HStack.swift */; };
 		BF5FA6C6254CA6010093BBBD /* VStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FA6C5254CA6010093BBBD /* VStack.swift */; };
+		BFB7FC65254EF75E00DE13CB /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7FC64254EF75E00DE13CB /* UIWindow+.swift */; };
 		BFBD1D82254C88FA00E6B750 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD1D81254C88FA00E6B750 /* AppDelegate.swift */; };
 		BFBD1D84254C88FA00E6B750 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD1D83254C88FA00E6B750 /* SceneDelegate.swift */; };
 		BFBD1D86254C88FA00E6B750 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD1D85254C88FA00E6B750 /* HomeViewController.swift */; };
@@ -41,6 +42,7 @@
 		BF5FA6BF254CA3340093BBBD /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		BF5FA6C2254CA53B0093BBBD /* HStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HStack.swift; sourceTree = "<group>"; };
 		BF5FA6C5254CA6010093BBBD /* VStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStack.swift; sourceTree = "<group>"; };
+		BFB7FC64254EF75E00DE13CB /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
 		BFBD1D7E254C88FA00E6B750 /* Coordinators.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coordinators.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFBD1D81254C88FA00E6B750 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFBD1D83254C88FA00E6B750 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		BF5FA6B3254C993B0093BBBD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BFB7FC63254EF75300DE13CB /* Extensions */,
 				BF062F62254CB325003E1662 /* Architecture */,
 				BF062F61254CB31E003E1662 /* UI */,
 			);
@@ -143,6 +146,14 @@
 				BF52695D254CA78100638F23 /* Centered.swift */,
 			);
 			path = Stacks;
+			sourceTree = "<group>";
+		};
+		BFB7FC63254EF75300DE13CB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BFB7FC64254EF75E00DE13CB /* UIWindow+.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		BFBD1D75254C88F900E6B750 = {
@@ -288,6 +299,7 @@
 				BF062F64254CB330003E1662 /* Coordinator.swift in Sources */,
 				BF5FA6C6254CA6010093BBBD /* VStack.swift in Sources */,
 				BF5FA6C3254CA53B0093BBBD /* HStack.swift in Sources */,
+				BFB7FC65254EF75E00DE13CB /* UIWindow+.swift in Sources */,
 				BFBD1D84254C88FA00E6B750 /* SceneDelegate.swift in Sources */,
 				BF5FA6C0254CA3340093BBBD /* Button.swift in Sources */,
 				BF52695B254CA76800638F23 /* StackItem.swift in Sources */,

@@ -4,9 +4,9 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .blue
+class HomeViewController: ViewController {
+    override func setup() {
+        view.backgroundColor = .purple
+        title = "Home"
     }
 }

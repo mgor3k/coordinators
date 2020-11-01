@@ -5,13 +5,13 @@
 import UIKit
 
 class AppCoordinator: Coordinator {
-    private let navigationController: NavigationController
+    private let window: UIWindow
     private var isLoggedIn = false
     
     var children: [Coordinator] = []
     
-    init(navigationController: NavigationController) {
-        self.navigationController = navigationController
+    init(window: UIWindow) {
+        self.window = window
     }
     
     func start() {
@@ -21,27 +21,30 @@ class AppCoordinator: Coordinator {
 
 private extension AppCoordinator {
     func showAuthentication() {
+        let nav = NavigationController()
         let coordinator = AuthenticationCoordinator(
-            navigationController: navigationController,
+            navigationController: nav,
             delegate: self
         )
         coordinator.start()
         attach(coordinator)
+        window.replaceRoot(nav)
     }
     
     func showMain() {
+        let tabBar = TabBarController()
         let coordinator = HomeCoordinator(
-            navigationController: navigationController
+            tabBarController: tabBar
         )
         coordinator.start()
         attach(coordinator)
+        window.replaceRoot(tabBar)
     }
 }
 
 extension AppCoordinator: AuthenticationCoordinatorDelegate {
     func didAuthenticate(_ coordinator: Coordinator) {
         detach(coordinator)
-        navigationController.clearViewControllers()
         showMain()
     }
 }

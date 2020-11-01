@@ -5,15 +5,18 @@
 import UIKit
 
 class HomeCoordinator: Coordinator {
-    private let navigationController: UINavigationController
+    private let tabBarController: TabBarController
     var children: [Coordinator] = []
     
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    init(tabBarController: TabBarController) {
+        self.tabBarController = tabBarController
     }
     
     func start() {
+        let nav = NavigationController()
         let vc = HomeViewController()
-        navigationController.show(vc, sender: self)
+        nav.title = vc.title
+        nav.viewControllers = [vc]
+        tabBarController.addVC(nav)
     }
 }

@@ -17,11 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.windowScene = windowScene
         
-        let navigationController = NavigationController()
-        window?.rootViewController = navigationController
-        
-        appCoordinator = AppCoordinator(navigationController: navigationController)
-        appCoordinator?.start()
+        if let window = window {
+            appCoordinator = AppCoordinator(window: window)
+            appCoordinator?.start()
+        }
         
         window?.makeKeyAndVisible()
     }
