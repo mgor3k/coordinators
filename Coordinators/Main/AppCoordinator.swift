@@ -33,11 +33,21 @@ private extension AppCoordinator {
     
     func showMain() {
         let tabBar = TabBarController()
-        let coordinator = HomeCoordinator(
-            tabBarController: tabBar
-        )
-        coordinator.start()
-        attach(coordinator)
+        
+        let coordinators: [Coordinator] = [
+            HomeCoordinator(
+                tabBarController: tabBar
+            ),
+            SettingsCoordinator(
+                tabBarController: tabBar
+            )
+        ]
+        
+        coordinators.forEach {
+            $0.start()
+            attach($0)
+        }
+        
         window.replaceRoot(tabBar)
     }
 }
