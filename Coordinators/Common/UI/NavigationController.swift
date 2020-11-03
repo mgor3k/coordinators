@@ -5,6 +5,14 @@
 import UIKit
 
 class NavigationController: UINavigationController {
+    var barColor: UIColor = .white {
+        didSet {
+            navigationBar.largeTitleTextAttributes = [
+                NSAttributedString.Key.foregroundColor: barColor
+            ]
+        }
+    }
+    
     init() {
         super.init(nibName: nil, bundle: nil)
         navigationBar.prefersLargeTitles = true

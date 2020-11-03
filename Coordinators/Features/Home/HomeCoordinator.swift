@@ -6,6 +6,7 @@ import UIKit
 
 class HomeCoordinator: Coordinator {
     private let tabBarController: TabBarController
+    private let navigationController = NavigationController()
     var children: [Coordinator] = []
     
     init(tabBarController: TabBarController) {
@@ -13,10 +14,11 @@ class HomeCoordinator: Coordinator {
     }
     
     func start() {
-        let nav = NavigationController()
-        let vc = HomeViewController()
-        nav.title = vc.title
-        nav.viewControllers = [vc]
-        tabBarController.addVC(nav)
+        let vm = HomeViewModel()
+        let vc = HomeViewController(viewModel: vm)
+        navigationController.title = vc.title
+        navigationController.barColor = .black
+        navigationController.viewControllers = [vc]
+        tabBarController.addVC(navigationController)
     }
 }
