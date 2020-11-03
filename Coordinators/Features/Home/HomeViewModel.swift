@@ -4,11 +4,29 @@
 
 import Foundation
 
-class HomeViewModel {
+class HomeViewModel: ObservableObject {
+    @Published var models: [HomeModel] = []
+    @Published var isLoading = false
+    
     let screenName = "Home"
     
-    let models: [HomeModel] = [
-        .init(title: "Test1"),
-        .init(title: "Test2")
-    ]
+    init() {
+        fetchModels()
+    }
+}
+
+private extension HomeViewModel {
+    func fetchModels() {
+        isLoading = true
+        
+        DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
+            self?.isLoading = false
+            DispatchQueue.main.async {
+                self?.models = [
+                    .init(title: "Test1"),
+                    .init(title: "Test2")
+                ]
+            }
+        }
+    }
 }

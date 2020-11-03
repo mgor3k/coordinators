@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import Combine
 
 typealias HomeSnapshot = NSDiffableDataSourceSnapshot<HomeSection, HomeModel>
 typealias HomeDataSource = UICollectionViewDiffableDataSource<HomeSection, HomeModel>
@@ -13,11 +14,15 @@ class HomeViewController: ViewController {
             frame: .zero,
             collectionViewLayout: HomeCompositionalLayout.create()
         )
+        cv.backgroundColor = .white
         return cv
     }()
     
+    private let indicator = UIActivityIndicatorView(style: .large)
+    
     private let viewModel: HomeViewModel
     private lazy var dataSource = makeDataSource()
+    private var subscriptions: Set<AnyCancellable> = []
     
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
@@ -29,12 +34,13 @@ class HomeViewController: ViewController {
         title = viewModel.screenName
         
         setupCollectionView()
+        setupIndicator()
+        setupBindings()
     }
 }
 
 private extension HomeViewController {
     func setupCollectionView() {
-        collectionView.backgroundColor = .white
         collectionView.dataSource = dataSource
         collectionView.register(HomeCell.self)
         applySnapshot(animatingDifferences: false)
@@ -43,6 +49,29 @@ private extension HomeViewController {
         collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+    }
+    
+    func setupIndicator() {
+        view.addSubview(indicator)
+        indicator.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+    }
+    
+    func setupBindings() {
+        viewModel.$isLoading
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] in
+                $0 ? self?.indicator.startAnimating() : self?.indicator.stopAnimating()
+            })
+            .store(in: &subscriptions)
+        
+        viewModel.$models
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] _ in
+                self?.applySnapshot()
+            })
+            .store(in: &subscriptions)
     }
     
     func makeDataSource() -> HomeDataSource {
