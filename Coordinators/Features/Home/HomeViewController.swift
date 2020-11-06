@@ -19,6 +19,13 @@ class HomeViewController: ViewController {
     }()
     
     private let indicator = UIActivityIndicatorView(style: .large)
+    private lazy var refreshControl: UIRefreshControl = {
+        let action = UIAction { [weak viewModel] _ in
+            viewModel?.fetch()
+        }
+        let rc = UIRefreshControl(frame: .zero, primaryAction: action)
+        return rc
+    }()
     
     private let viewModel: HomeViewModel
     private lazy var dataSource = makeDataSource()
@@ -43,6 +50,7 @@ private extension HomeViewController {
     func setupCollectionView() {
         collectionView.dataSource = dataSource
         collectionView.delegate = self
+        collectionView.refreshControl = refreshControl
         collectionView.register(HomeCell.self)
         applySnapshot(animatingDifferences: false)
         
@@ -62,8 +70,16 @@ private extension HomeViewController {
     func setupBindings() {
         viewModel.$isLoading
             .receive(on: DispatchQueue.main)
-            .sink(receiveValue: { [weak self] in
-                $0 ? self?.indicator.startAnimating() : self?.indicator.stopAnimating()
+            .sink(receiveValue: { [weak self] isLoading in
+                guard self?.refreshControl.isRefreshing == true else {
+                    isLoading ? self?.indicator.startAnimating() : self?.indicator.stopAnimating()
+                    return
+                }
+                
+                // beginRefreshing is called automatically on pull
+                if !isLoading {
+                    self?.refreshControl.endRefreshing()
+                }
             })
             .store(in: &subscriptions)
         

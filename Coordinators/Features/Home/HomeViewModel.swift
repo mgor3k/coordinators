@@ -18,25 +18,36 @@ class HomeViewModel: ObservableObject {
     
     init(delegate: HomeDelegate) {
         self.delegate = delegate
-        fetchModels()
+        initialFetch()
     }
     
     func didSelectModel(at index: Int) {
         let selectedModel = models[index]
         delegate?.didSelect(model: selectedModel)
     }
+    
+    func fetch() {
+        isLoading = true
+        
+        DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
+            self?.isLoading = false
+//            DispatchQueue.main.async {
+                self?.models.append(.init(title: "Test\(self?.models.count ?? 0)"))
+//            }
+        }
+    }
 }
 
 private extension HomeViewModel {
-    func fetchModels() {
+    func initialFetch() {
         isLoading = true
         
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) { [weak self] in
             self?.isLoading = false
             DispatchQueue.main.async {
                 self?.models = [
-                    .init(title: "Test1"),
-                    .init(title: "Test2")
+                    .init(title: "Test0"),
+                    .init(title: "Test1")
                 ]
             }
         }
