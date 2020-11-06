@@ -45,6 +45,7 @@
 		BFBD1DA5254C948C00E6B750 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD1DA4254C948C00E6B750 /* LoginViewController.swift */; };
 		BFBD1DA9254C94DB00E6B750 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD1DA8254C94DB00E6B750 /* HomeCoordinator.swift */; };
 		BFE7A4F1254EF08300E64EA5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */; };
+		BFF4D7B42555F373009C93CC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF4D7B32555F373009C93CC /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		BFBD1DA4254C948C00E6B750 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BFBD1DA8254C94DB00E6B750 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		BFF4D7B32555F373009C93CC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				BF1FBB12254C964900FD3BD0 /* Authentication */,
 				BFE7A4F4254EF0EA00E64EA5 /* Settings */,
 				BF1FBB14254C966800FD3BD0 /* Home */,
+				BFF4D7B22555F359009C93CC /* Details */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -290,6 +293,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		BFF4D7B22555F359009C93CC /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				BFF4D7B32555F373009C93CC /* DetailsViewController.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -385,6 +396,7 @@
 				BFBD1D86254C88FA00E6B750 /* HomeViewController.swift in Sources */,
 				BF3AA6AC2551E548006ADE3A /* HomeCell.swift in Sources */,
 				BF3AA6BB2551E6CF006ADE3A /* UICollectionView+.swift in Sources */,
+				BFF4D7B42555F373009C93CC /* DetailsViewController.swift in Sources */,
 				BF3AA6A52551D250006ADE3A /* HomeViewModel.swift in Sources */,
 				BFBD1D82254C88FA00E6B750 /* AppDelegate.swift in Sources */,
 				BF5FA6BD254C9B770093BBBD /* NavigationController.swift in Sources */,

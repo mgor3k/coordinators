@@ -14,11 +14,24 @@ class HomeCoordinator: Coordinator {
     }
     
     func start() {
-        let vm = HomeViewModel()
+        let vm = HomeViewModel(delegate: self)
         let vc = HomeViewController(viewModel: vm)
         navigationController.title = vc.title
         navigationController.barColor = .black
         navigationController.viewControllers = [vc]
         tabBarController.addVC(navigationController)
+    }
+}
+
+extension HomeCoordinator: HomeDelegate {
+    func didSelect(model: HomeModel) {
+        showDetails(model: model)
+    }
+}
+
+private extension HomeCoordinator {
+    func showDetails(model: HomeModel) {
+        let vc = DetailsViewController()
+        navigationController.show(vc, sender: self)
     }
 }

@@ -4,14 +4,26 @@
 
 import Foundation
 
+protocol HomeDelegate: class {
+    func didSelect(model: HomeModel)
+}
+
 class HomeViewModel: ObservableObject {
     @Published var models: [HomeModel] = []
     @Published var isLoading = false
     
     let screenName = "Home"
     
-    init() {
+    private weak var delegate: HomeDelegate?
+    
+    init(delegate: HomeDelegate) {
+        self.delegate = delegate
         fetchModels()
+    }
+    
+    func didSelectModel(at index: Int) {
+        let selectedModel = models[index]
+        delegate?.didSelect(model: selectedModel)
     }
 }
 

@@ -42,6 +42,7 @@ class HomeViewController: ViewController {
 private extension HomeViewController {
     func setupCollectionView() {
         collectionView.dataSource = dataSource
+        collectionView.delegate = self
         collectionView.register(HomeCell.self)
         applySnapshot(animatingDifferences: false)
         
@@ -91,6 +92,14 @@ private extension HomeViewController {
         snapshot.appendSections([.main])
         snapshot.appendItems(viewModel.models)
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath) {
+        viewModel.didSelectModel(at: indexPath.item)
     }
 }
 
