@@ -14,7 +14,7 @@ class HomeViewController: ViewController {
             frame: .zero,
             collectionViewLayout: HomeCompositionalLayout.create()
         )
-        cv.backgroundColor = .white
+        cv.backgroundColor = .clear
         return cv
     }()
     
@@ -78,7 +78,10 @@ private extension HomeViewController {
         HomeDataSource(
             collectionView: collectionView) { cv, indexPath, model in
             let cell = cv.dequeue(HomeCell.self, for: indexPath)
-            cell.setTitle(model.title)
+            cell.setTitle(
+                model.title,
+                backgroundColor: colors[indexPath.item % colors.count]
+            )
             return cell
         }
     }
@@ -90,3 +93,11 @@ private extension HomeViewController {
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
 }
+
+private let colors: [UIColor] = [
+    UIColor(red: 1.00, green: 0.69, blue: 0.53, alpha: 1.00),
+    UIColor(red: 1.00, green: 0.41, blue: 0.49, alpha: 1.00),
+    UIColor(red: 0.79, green: 0.40, blue: 0.53, alpha: 1.00),
+    UIColor(red: 0.46, green: 0.35, blue: 0.52, alpha: 1.00),
+    UIColor(red: 0.15, green: 0.37, blue: 0.52, alpha: 1.00)
+]

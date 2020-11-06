@@ -15,7 +15,7 @@ enum HomeCompositionalLayout {
             layoutSize: itemSize
         )
         
-        item.contentInsets = .init(top: 0, leading: 0, bottom: 8, trailing: 0)
+        item.contentInsets = .init(top: 0, leading: 0, bottom: 16, trailing: 0)
         
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),

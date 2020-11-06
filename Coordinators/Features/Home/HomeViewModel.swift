@@ -19,7 +19,7 @@ private extension HomeViewModel {
     func fetchModels() {
         isLoading = true
         
-        DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) { [weak self] in
             self?.isLoading = false
             DispatchQueue.main.async {
                 self?.models = [
