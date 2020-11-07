@@ -4,11 +4,11 @@
 
 import Foundation
 
-class DetailsViewModel {
+class HomeSuccessViewModel {
     private let model: HomeModel
     
-    var screenName: String {
-        model.title
+    var title: String {
+        "Thanks for buying " + model.title
     }
     
     init(model: HomeModel) {

@@ -28,11 +28,28 @@ extension HomeCoordinator: HomeDelegate {
     }
 }
 
+extension HomeCoordinator: DetailsDelegate {
+    func didBuyModel(_ model: HomeModel) {
+        showSuccess(for: model)
+    }
+}
+
 private extension HomeCoordinator {
     func showDetails(model: HomeModel) {
-        let vm = DetailsViewModel(model: model)
+        let vm = DetailsViewModel(
+            model: model,
+            delegate: self
+        )
         let vc = DetailsViewController(viewModel: vm)
         navigationController.show(vc, sender: self)
+    }
+    
+    func showSuccess(for model: HomeModel) {
+        let vm = HomeSuccessViewModel(model: model)
+        let vc = HomeSuccessViewController(viewModel: vm)
+        navigationController.present(vc, animated: true) { [weak navigationController] in
+            navigationController?.popToRootViewController(animated: false)
+        }
     }
 }
 
