@@ -40,7 +40,7 @@ class HomeViewModel: ObservableObject {
         
         DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
             self?.isLoading = false
-            self?.models = NetworkService.shared.getData()
+            self?.models = MockService.shared.getData()
         }
     }
 }
@@ -51,7 +51,7 @@ private extension HomeViewModel {
         
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) { [weak self] in
             self?.isLoading = false
-            self?.models = NetworkService.shared.getData()
+            self?.models = MockService.shared.getData()
         }
     }
 }

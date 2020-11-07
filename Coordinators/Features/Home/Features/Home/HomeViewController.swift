@@ -22,7 +22,7 @@ class HomeViewController: ViewController {
     private lazy var refreshControl: UIRefreshControl = {
         let action = UIAction { [weak viewModel] _ in
             // Mock adding new data on refresh
-            NetworkService.shared.currentState = .addNew
+            MockService.shared.currentState = .addNew
             viewModel?.fetch()
         }
         let rc = UIRefreshControl(frame: .zero, primaryAction: action)

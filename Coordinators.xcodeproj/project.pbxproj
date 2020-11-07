@@ -33,7 +33,7 @@
 		BF5FA6C0254CA3340093BBBD /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FA6BF254CA3340093BBBD /* Button.swift */; };
 		BF5FA6C3254CA53B0093BBBD /* HStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FA6C2254CA53B0093BBBD /* HStack.swift */; };
 		BF5FA6C6254CA6010093BBBD /* VStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FA6C5254CA6010093BBBD /* VStack.swift */; };
-		BF70263C25572A550040221A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF70263B25572A550040221A /* NetworkService.swift */; };
+		BF70263C25572A550040221A /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF70263B25572A550040221A /* MockService.swift */; };
 		BFB7FC65254EF75E00DE13CB /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7FC64254EF75E00DE13CB /* UIWindow+.swift */; };
 		BFB7FC6D254EF99D00DE13CB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7FC6C254EF99D00DE13CB /* SettingsViewController.swift */; };
 		BFB7FC70254EF9B900DE13CB /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7FC6F254EF9B900DE13CB /* SettingsCoordinator.swift */; };
@@ -78,7 +78,7 @@
 		BF5FA6BF254CA3340093BBBD /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		BF5FA6C2254CA53B0093BBBD /* HStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HStack.swift; sourceTree = "<group>"; };
 		BF5FA6C5254CA6010093BBBD /* VStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStack.swift; sourceTree = "<group>"; };
-		BF70263B25572A550040221A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		BF70263B25572A550040221A /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
 		BFB7FC64254EF75E00DE13CB /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
 		BFB7FC6C254EF99D00DE13CB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BFB7FC6F254EF9B900DE13CB /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
@@ -254,7 +254,7 @@
 		BF70263A25572A480040221A /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				BF70263B25572A550040221A /* NetworkService.swift */,
+				BF70263B25572A550040221A /* MockService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -430,7 +430,7 @@
 				BFB7FC73254EFC4B00DE13CB /* InlineButton.swift in Sources */,
 				BFB7FC77254EFC9000DE13CB /* RoundedButton.swift in Sources */,
 				BF3AA6A2254F5304006ADE3A /* LoadableRoundedButton.swift in Sources */,
-				BF70263C25572A550040221A /* NetworkService.swift in Sources */,
+				BF70263C25572A550040221A /* MockService.swift in Sources */,
 				BFB7FC70254EF9B900DE13CB /* SettingsCoordinator.swift in Sources */,
 				BFE7A4F1254EF08300E64EA5 /* TabBarController.swift in Sources */,
 				BF3AA6A82551E0BD006ADE3A /* HomeCompositionalLayout.swift in Sources */,
