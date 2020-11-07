@@ -13,12 +13,15 @@ class NavigationController: UINavigationController {
         }
     }
     
+    var onDismiss: (() -> Void)?
+    
     init() {
         super.init(nibName: nil, bundle: nil)
         navigationBar.prefersLargeTitles = true
         navigationBar.largeTitleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white
         ]
+        presentationController?.delegate = self
     }
     
     @available(*, unavailable)
@@ -32,5 +35,11 @@ class NavigationController: UINavigationController {
         transition.type = .fade
         view.layer.add(transition, forKey: nil)
         viewControllers = []
+    }
+}
+
+extension NavigationController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        onDismiss?()
     }
 }
