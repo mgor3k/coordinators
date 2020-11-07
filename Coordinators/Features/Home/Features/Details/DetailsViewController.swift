@@ -3,10 +3,11 @@
 //
 
 import UIKit
+import Combine
 
 class DetailsViewController: ViewController {
-    private lazy var button: RoundedButton = {
-        let btn = RoundedButton("Buy")
+    private lazy var button: LoadableRoundedButton = {
+        let btn = LoadableRoundedButton("Buy")
         btn.addAction { [weak viewModel] _ in
             viewModel?.buy()
         }
@@ -14,6 +15,7 @@ class DetailsViewController: ViewController {
     }()
     
     private let viewModel: DetailsViewModel
+    private var subscriptions: Set<AnyCancellable> = []
     
     init(viewModel: DetailsViewModel) {
         self.viewModel = viewModel
@@ -24,9 +26,24 @@ class DetailsViewController: ViewController {
         view.backgroundColor = .white
         title = viewModel.screenName
         
+        setupLayout()
+        setupBindings()
+    }
+}
+
+private extension DetailsViewController {
+    func setupLayout() {
         view.addSubview(button)
         button.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
+    }
+    
+    func setupBindings() {
+        viewModel.$isLoading
+            .dropFirst()
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isLoading, on: button)
+            .store(in: &subscriptions)
     }
 }

@@ -8,9 +8,11 @@ protocol DetailsDelegate: class {
     func didBuyModel(_ model: HomeModel)
 }
 
-class DetailsViewModel {
+class DetailsViewModel: ObservableObject {
     private let model: HomeModel
     private weak var delegate: DetailsDelegate?
+    
+    @Published var isLoading = false
     
     var screenName: String {
         model.title
@@ -22,8 +24,17 @@ class DetailsViewModel {
     }
     
     func buy() {
-        // TODO: Make some loading here
-        MockService.shared.currentState = .bought(model)
-        delegate?.didBuyModel(model)
+        isLoading = true
+        
+        let model = self.model
+        
+        DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
+            self?.isLoading = true
+            MockService.shared.currentState = .bought(model)
+            
+            DispatchQueue.main.async {
+                self?.delegate?.didBuyModel(model)
+            }
+        }
     }
 }

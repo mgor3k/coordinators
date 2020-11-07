@@ -40,7 +40,7 @@ class HomeCell: CollectionViewCell {
         }
         
         boughtImageView.snp.makeConstraints {
-            $0.size.equalTo(32)
+            $0.width.equalTo(32)
         }
     }
 }
