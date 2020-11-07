@@ -26,15 +26,6 @@ class HomeViewModel: ObservableObject {
         delegate?.didSelect(model: selectedModel)
     }
     
-    func updateModel(_ model: HomeModel) {
-        if let index = models.firstIndex(where: { $0.id == model.id }) {
-            var temp = models
-            temp.remove(at: index)
-            temp.insert(model, at: index)
-            models = temp
-        }
-    }
-    
     func fetch() {
         isLoading = true
         
