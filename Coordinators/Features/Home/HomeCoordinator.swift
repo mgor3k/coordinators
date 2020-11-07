@@ -30,7 +30,8 @@ extension HomeCoordinator: HomeDelegate {
 
 private extension HomeCoordinator {
     func showDetails(model: HomeModel) {
-        let vc = DetailsViewController()
+        let vm = DetailsViewModel(model: model)
+        let vc = DetailsViewController(viewModel: vm)
         navigationController.show(vc, sender: self)
     }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BF062F5E254CAEDE003E1662 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF062F5D254CAEDE003E1662 /* LoginViewModel.swift */; };
 		BF062F64254CB330003E1662 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF062F63254CB330003E1662 /* Coordinator.swift */; };
+		BF08E7AE25571521006F7700 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF08E7AD25571521006F7700 /* DetailsViewModel.swift */; };
 		BF1FBB19254C96E900FD3BD0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BF1FBB18254C96E900FD3BD0 /* SnapKit */; };
 		BF3AA691254EFD84006ADE3A /* Trailing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA690254EFD84006ADE3A /* Trailing.swift */; };
 		BF3AA694254EFED1006ADE3A /* PasswordReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA693254EFED1006ADE3A /* PasswordReminderViewController.swift */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		BF062F5D254CAEDE003E1662 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		BF062F63254CB330003E1662 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		BF08E7AD25571521006F7700 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		BF3AA690254EFD84006ADE3A /* Trailing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trailing.swift; sourceTree = "<group>"; };
 		BF3AA693254EFED1006ADE3A /* PasswordReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordReminderViewController.swift; sourceTree = "<group>"; };
 		BF3AA697254EFF66006ADE3A /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				BFF4D7B32555F373009C93CC /* DetailsViewController.swift */,
+				BF08E7AD25571521006F7700 /* DetailsViewModel.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				BFBD1D82254C88FA00E6B750 /* AppDelegate.swift in Sources */,
 				BF5FA6BD254C9B770093BBBD /* NavigationController.swift in Sources */,
 				BFBD1DA9254C94DB00E6B750 /* HomeCoordinator.swift in Sources */,
+				BF08E7AE25571521006F7700 /* DetailsViewModel.swift in Sources */,
 				BF062F64254CB330003E1662 /* Coordinator.swift in Sources */,
 				BF5FA6C6254CA6010093BBBD /* VStack.swift in Sources */,
 				BF5FA6C3254CA53B0093BBBD /* HStack.swift in Sources */,

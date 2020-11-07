@@ -5,8 +5,15 @@
 import UIKit
 
 class DetailsViewController: ViewController {
+    private let viewModel: DetailsViewModel
+    
+    init(viewModel: DetailsViewModel) {
+        self.viewModel = viewModel
+        super.init()
+    }
+    
     override func setup() {
         view.backgroundColor = .white
-        title = "Details"
+        title = viewModel.screenName
     }
 }
