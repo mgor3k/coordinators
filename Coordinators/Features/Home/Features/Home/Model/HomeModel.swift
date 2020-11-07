@@ -4,6 +4,8 @@
 
 import Foundation
 
-struct HomeModel: Hashable {
+struct HomeModel: Identifiable, Hashable {
+    let id = UUID()
     let title: String
+    let isBought: Bool
 }

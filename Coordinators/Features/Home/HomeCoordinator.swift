@@ -9,6 +9,8 @@ class HomeCoordinator: Coordinator {
     private let navigationController = NavigationController()
     var children: [Coordinator] = []
     
+    private var onBought: ((HomeModel) -> Void)?
+    
     init(tabBarController: TabBarController) {
         self.tabBarController = tabBarController
     }
@@ -16,6 +18,11 @@ class HomeCoordinator: Coordinator {
     func start() {
         let vm = HomeViewModel(delegate: self)
         let vc = HomeViewController(viewModel: vm)
+        
+        onBought = { [weak vm] model in
+            vm?.fetch()
+        }
+        
         navigationController.configure(title: vc.title)
         navigationController.viewControllers = [vc]
         tabBarController.addVC(navigationController)
@@ -30,6 +37,7 @@ extension HomeCoordinator: HomeDelegate {
 
 extension HomeCoordinator: DetailsDelegate {
     func didBuyModel(_ model: HomeModel) {
+        onBought?(model)
         showSuccess(for: model)
     }
 }

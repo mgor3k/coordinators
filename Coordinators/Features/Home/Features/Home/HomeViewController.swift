@@ -21,6 +21,8 @@ class HomeViewController: ViewController {
     private let indicator = UIActivityIndicatorView(style: .large)
     private lazy var refreshControl: UIRefreshControl = {
         let action = UIAction { [weak viewModel] _ in
+            // Mock adding new data on refresh
+            NetworkService.shared.currentState = .addNew
             viewModel?.fetch()
         }
         let rc = UIRefreshControl(frame: .zero, primaryAction: action)
@@ -97,6 +99,7 @@ private extension HomeViewController {
             let cell = cv.dequeue(HomeCell.self, for: indexPath)
             cell.setTitle(
                 model.title,
+                isBought: model.isBought,
                 backgroundColor: colors[indexPath.item % colors.count]
             )
             return cell

@@ -26,14 +26,21 @@ class HomeViewModel: ObservableObject {
         delegate?.didSelect(model: selectedModel)
     }
     
+    func updateModel(_ model: HomeModel) {
+        if let index = models.firstIndex(where: { $0.id == model.id }) {
+            var temp = models
+            temp.remove(at: index)
+            temp.insert(model, at: index)
+            models = temp
+        }
+    }
+    
     func fetch() {
         isLoading = true
         
         DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
             self?.isLoading = false
-//            DispatchQueue.main.async {
-                self?.models.append(.init(title: "Test\(self?.models.count ?? 0)"))
-//            }
+            self?.models = NetworkService.shared.getData()
         }
     }
 }
@@ -44,12 +51,7 @@ private extension HomeViewModel {
         
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) { [weak self] in
             self?.isLoading = false
-            DispatchQueue.main.async {
-                self?.models = [
-                    .init(title: "Test0"),
-                    .init(title: "Test1")
-                ]
-            }
+            self?.models = NetworkService.shared.getData()
         }
     }
 }

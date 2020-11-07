@@ -22,6 +22,8 @@ class DetailsViewModel {
     }
     
     func buy() {
+        // TODO: Make some loading here
+        NetworkService.shared.currentState = .bought(model)
         delegate?.didBuyModel(model)
     }
 }
