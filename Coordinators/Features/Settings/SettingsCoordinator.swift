@@ -5,22 +5,17 @@
 import UIKit
 
 class SettingsCoordinator: Coordinator {
-    private let tabBarController: TabBarController
-    private let navigationController = NavigationController()
+    private let navigationController: NavigationController
     var children: [Coordinator] = []
     
-    init(tabBarController: TabBarController) {
-        self.tabBarController = tabBarController
+    init(navigationController: NavigationController) {
+        self.navigationController = navigationController
     }
     
     func start() {
         let vm = SettingsViewModel(delegate: self)
         let vc = SettingsViewController(viewModel: vm)
-        navigationController.configure(title: vc.title)
         navigationController.viewControllers = [vc]
-        
-        // TODO: Fix this
-        tabBarController.addVC(navigationController)
     }
 }
 
@@ -40,14 +35,5 @@ extension SettingsCoordinator: SettingsDelegate {
 extension SettingsCoordinator: ProfileCoordinatorDelegate {
     func didClose(_ coordinator: ProfileCoordinator) {
         detach(coordinator)
-    }
-}
-
-private extension NavigationController {
-    func configure(title: String?) {
-        self.title = title
-        tabBarItem.image = UIImage(systemName: "gearshape")
-        tabBarItem.selectedImage = UIImage(systemName: "gearshape.fill")
-        barColor = .black
     }
 }

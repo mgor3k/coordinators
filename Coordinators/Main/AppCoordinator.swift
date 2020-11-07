@@ -32,20 +32,16 @@ private extension AppCoordinator {
     }
     
     func showMain() {
+        let factory = Factory()
         let tabBar = TabBarController()
         
-        let coordinators: [Coordinator] = [
-            HomeCoordinator(
-                tabBarController: tabBar
-            ),
-            SettingsCoordinator(
-                tabBarController: tabBar
-            )
-        ]
+        let home = factory.makeHome()
+        let settings = factory.makeSettings()
         
-        coordinators.forEach {
-            $0.start()
-            attach($0)
+        [home, settings].forEach {
+            attach($0.coordinator)
+            $0.coordinator.start()
+            tabBar.addVC($0.navigation)
         }
         
         window.replaceRoot(tabBar)

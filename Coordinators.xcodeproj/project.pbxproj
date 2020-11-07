@@ -38,6 +38,7 @@
 		BF70264525573E810040221A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF70264425573E810040221A /* ProfileViewController.swift */; };
 		BF70264925573FAA0040221A /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF70264825573FAA0040221A /* ProfileCoordinator.swift */; };
 		BF70264C255742B60040221A /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF70264B255742B60040221A /* ProfileViewModel.swift */; };
+		BF70264F255748E10040221A /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF70264E255748E10040221A /* Factory.swift */; };
 		BFB7FC65254EF75E00DE13CB /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7FC64254EF75E00DE13CB /* UIWindow+.swift */; };
 		BFB7FC6D254EF99D00DE13CB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7FC6C254EF99D00DE13CB /* SettingsViewController.swift */; };
 		BFB7FC70254EF9B900DE13CB /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7FC6F254EF9B900DE13CB /* SettingsCoordinator.swift */; };
@@ -87,6 +88,7 @@
 		BF70264425573E810040221A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BF70264825573FAA0040221A /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		BF70264B255742B60040221A /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		BF70264E255748E10040221A /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		BFB7FC64254EF75E00DE13CB /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
 		BFB7FC6C254EF99D00DE13CB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BFB7FC6F254EF9B900DE13CB /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				BF70263B25572A550040221A /* MockService.swift */,
+				BF70264E255748E10040221A /* Factory.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				BFB7FC70254EF9B900DE13CB /* SettingsCoordinator.swift in Sources */,
 				BF70264125573D8F0040221A /* SettingsViewModel.swift in Sources */,
 				BFE7A4F1254EF08300E64EA5 /* TabBarController.swift in Sources */,
+				BF70264F255748E10040221A /* Factory.swift in Sources */,
 				BF3AA6A82551E0BD006ADE3A /* HomeCompositionalLayout.swift in Sources */,
 				BF5FA6BA254C9A920093BBBD /* ViewController.swift in Sources */,
 				BF062F5E254CAEDE003E1662 /* LoginViewModel.swift in Sources */,

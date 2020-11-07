@@ -5,14 +5,13 @@
 import UIKit
 
 class HomeCoordinator: Coordinator {
-    private let tabBarController: TabBarController
-    private let navigationController = NavigationController()
+    private let navigationController: NavigationController
     var children: [Coordinator] = []
     
     private var onBought: ((HomeModel) -> Void)?
     
-    init(tabBarController: TabBarController) {
-        self.tabBarController = tabBarController
+    init(navigationController: NavigationController) {
+        self.navigationController = navigationController
     }
     
     func start() {
@@ -23,9 +22,7 @@ class HomeCoordinator: Coordinator {
             vm?.fetch()
         }
         
-        navigationController.configure(title: vc.title)
         navigationController.viewControllers = [vc]
-        tabBarController.addVC(navigationController)
     }
 }
 
@@ -58,14 +55,5 @@ private extension HomeCoordinator {
         navigationController.present(vc, animated: true) { [weak navigationController] in
             navigationController?.popToRootViewController(animated: false)
         }
-    }
-}
-
-private extension NavigationController {
-    func configure(title: String?) {
-        self.title = title
-        tabBarItem.image = UIImage(systemName: "house")
-        tabBarItem.selectedImage = UIImage(systemName: "house.fill")
-        barColor = .black
     }
 }
