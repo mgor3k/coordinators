@@ -22,7 +22,12 @@ class HomeSuccessViewController: ViewController {
     
     override func setup() {
         view.backgroundColor = .purple
-        
+        setupLayout()
+    }
+}
+
+private extension HomeSuccessViewController {
+    func setupLayout() {
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
             $0.center.equalToSuperview()

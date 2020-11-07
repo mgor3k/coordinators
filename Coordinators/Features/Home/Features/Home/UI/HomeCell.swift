@@ -23,16 +23,17 @@ class HomeCell: CollectionViewCell {
     }
     
     override func setup() {
-        contentView.backgroundColor = UIColor(white: 1, alpha: 0.9)
-        contentView.layer.cornerRadius = 10
-        
-        contentView.layer.shadowColor = UIColor.black.cgColor
-        contentView.layer.shadowOffset = .init(width: 0, height: 0)
-        contentView.layer.shadowRadius = 10
-        contentView.layer.shadowOpacity = 0.1
-        
+        setupBackground()
+        setupShadow()
+        setupLayout()
+    }
+}
+
+private extension HomeCell {
+    func setupLayout() {
         let stack = HStack([titleLabel, UIView(), boughtImageView])
         contentView.addSubview(stack)
+        
         stack.snp.makeConstraints {
             $0.edges.equalTo(
                 UIEdgeInsets.init(top: 8, left: 16, bottom: 8, right: 16)
@@ -42,5 +43,17 @@ class HomeCell: CollectionViewCell {
         boughtImageView.snp.makeConstraints {
             $0.width.equalTo(32)
         }
+    }
+    
+    func setupBackground() {
+        contentView.backgroundColor = UIColor(white: 1, alpha: 0.9)
+        contentView.layer.cornerRadius = 10
+    }
+    
+    func setupShadow() {
+        contentView.layer.shadowColor = UIColor.black.cgColor
+        contentView.layer.shadowOffset = .init(width: 0, height: 0)
+        contentView.layer.shadowRadius = 10
+        contentView.layer.shadowOpacity = 0.1
     }
 }
