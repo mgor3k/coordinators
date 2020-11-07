@@ -16,8 +16,7 @@ class HomeCoordinator: Coordinator {
     func start() {
         let vm = HomeViewModel(delegate: self)
         let vc = HomeViewController(viewModel: vm)
-        navigationController.title = vc.title
-        navigationController.barColor = .black
+        navigationController.configure(title: vc.title)
         navigationController.viewControllers = [vc]
         tabBarController.addVC(navigationController)
     }
@@ -33,5 +32,14 @@ private extension HomeCoordinator {
     func showDetails(model: HomeModel) {
         let vc = DetailsViewController()
         navigationController.show(vc, sender: self)
+    }
+}
+
+private extension NavigationController {
+    func configure(title: String?) {
+        self.title = title
+        tabBarItem.image = UIImage(systemName: "house")
+        tabBarItem.selectedImage = UIImage(systemName: "house.fill")
+        barColor = .black
     }
 }

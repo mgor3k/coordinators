@@ -6,6 +6,7 @@ import UIKit
 
 class SettingsCoordinator: Coordinator {
     private let tabBarController: TabBarController
+    private let navigationController = NavigationController()
     var children: [Coordinator] = []
     
     init(tabBarController: TabBarController) {
@@ -13,10 +14,18 @@ class SettingsCoordinator: Coordinator {
     }
     
     func start() {
-        let nav = NavigationController()
         let vc = SettingsViewController()
-        nav.title = vc.title
-        nav.viewControllers = [vc]
-        tabBarController.addVC(nav)
+        navigationController.configure(title: vc.title)
+        navigationController.viewControllers = [vc]
+        tabBarController.addVC(navigationController)
+    }
+}
+
+private extension NavigationController {
+    func configure(title: String?) {
+        self.title = title
+        tabBarItem.image = UIImage(systemName: "gearshape")
+        tabBarItem.selectedImage = UIImage(systemName: "gearshape.fill")
+        barColor = .black
     }
 }
