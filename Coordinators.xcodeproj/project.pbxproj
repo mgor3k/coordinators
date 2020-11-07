@@ -266,7 +266,6 @@
 			isa = PBXGroup;
 			children = (
 				BF70263B25572A550040221A /* MockService.swift */,
-				BF70264E255748E10040221A /* Factory.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -279,6 +278,14 @@
 				BF70264825573FAA0040221A /* ProfileCoordinator.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		BF702651255749AD0040221A /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				BF70264E255748E10040221A /* Factory.swift */,
+			);
+			path = Factory;
 			sourceTree = "<group>";
 		};
 		BFB7FC63254EF75300DE13CB /* Extensions */ = {
@@ -325,6 +332,7 @@
 				BFBD1D97254C893800E6B750 /* Resources */,
 				BF1FBB11254C963A00FD3BD0 /* Features */,
 				BF70263A25572A480040221A /* Services */,
+				BF702651255749AD0040221A /* Factory */,
 				BF5FA6B3254C993B0093BBBD /* Common */,
 			);
 			path = Coordinators;
