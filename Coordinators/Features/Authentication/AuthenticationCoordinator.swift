@@ -37,7 +37,7 @@ private extension AuthenticationCoordinator {
     }
     
     func showSignup() {
-        let vm = SignupViewModel()
+        let vm = SignupViewModel(delegate: self)
         let vc = SignupViewController(viewModel: vm)
         navigationController.show(vc, sender: self)
     }
@@ -54,5 +54,12 @@ extension AuthenticationCoordinator: LoginDelegate {
     
     func willSignup() {
         showSignup()
+    }
+}
+
+extension AuthenticationCoordinator: SignupDelegate {
+    func didSignup() {
+        // Show success
+        delegate?.didAuthenticate(self)
     }
 }

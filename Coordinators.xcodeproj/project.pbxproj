@@ -54,7 +54,6 @@
 		BFBD1DA5254C948C00E6B750 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD1DA4254C948C00E6B750 /* LoginViewController.swift */; };
 		BFBD1DA9254C94DB00E6B750 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD1DA8254C94DB00E6B750 /* HomeCoordinator.swift */; };
 		BFD46D8A25581FA700DD871E /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46D8925581FA700DD871E /* SignupViewModel.swift */; };
-		BFD46D8E2558204700DD871E /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46D8D2558204700DD871E /* SignupModel.swift */; };
 		BFD46D932558259B00DD871E /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46D922558259B00DD871E /* UITextField+.swift */; };
 		BFE7A4F1254EF08300E64EA5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */; };
 		BFF4D7B42555F373009C93CC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF4D7B32555F373009C93CC /* DetailsViewController.swift */; };
@@ -109,7 +108,6 @@
 		BFBD1DA4254C948C00E6B750 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BFBD1DA8254C94DB00E6B750 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		BFD46D8925581FA700DD871E /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
-		BFD46D8D2558204700DD871E /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		BFD46D922558259B00DD871E /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BFF4D7B32555F373009C93CC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -313,7 +311,6 @@
 		BF70265625581CDF0040221A /* Signup */ = {
 			isa = PBXGroup;
 			children = (
-				BFD46D8C2558204000DD871E /* Model */,
 				BF3AA697254EFF66006ADE3A /* SignupViewController.swift */,
 				BFD46D8925581FA700DD871E /* SignupViewModel.swift */,
 			);
@@ -396,14 +393,6 @@
 				BFBD1D9D254C926600E6B750 /* AppCoordinator.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		BFD46D8C2558204000DD871E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				BFD46D8D2558204700DD871E /* SignupModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		BFE7A4F4254EF0EA00E64EA5 /* Settings */ = {
@@ -503,7 +492,6 @@
 				BFBD1DA5254C948C00E6B750 /* LoginViewController.swift in Sources */,
 				BFBD1D9E254C926600E6B750 /* AppCoordinator.swift in Sources */,
 				BF3AA6B82551E5DE006ADE3A /* HomeSection.swift in Sources */,
-				BFD46D8E2558204700DD871E /* SignupModel.swift in Sources */,
 				BF3AA6B42551E5CE006ADE3A /* HomeModel.swift in Sources */,
 				BFBD1DA2254C936500E6B750 /* AuthenticationCoordinator.swift in Sources */,
 				BF3AA69C254F04BA006ADE3A /* SecureTextField.swift in Sources */,

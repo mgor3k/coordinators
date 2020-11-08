@@ -12,8 +12,8 @@ class SignupViewController: ViewController {
     
     private lazy var signupButton: LoadableRoundedButton = {
         let btn = LoadableRoundedButton("Signup")
-        btn.addAction { [weak self] _ in
-            self?.signup()
+        btn.addAction { [weak viewModel] _ in
+            viewModel?.signup()
         }
         btn.isEnabled = false
         return btn
@@ -61,23 +61,22 @@ private extension SignupViewController {
             .assign(to: \.isLoading, on: signupButton)
             .store(in: &subscriptions)
         
-        // TODO: Make this better, move to viewModel
-        Publishers.CombineLatest3(
-            nameTextField.textPublisher,
-            lastNameTextField.textPublisher,
-            emailTextField.textPublisher)
-            .map { !($0.0.isEmpty || $0.1.isEmpty || $0.2.isEmpty) }
+        viewModel.$isValid
+            .dropFirst()
             .receive(on: DispatchQueue.main)
             .assign(to: \.isEnabled, on: signupButton)
             .store(in: &subscriptions)
-    }
-    
-    func signup() {
-        let model = SignupModel(
-            name: nameTextField.text ?? "",
-            lastName: lastNameTextField.text ?? "",
-            email: emailTextField.text ?? ""
-        )
-        viewModel.signup(model)
+        
+        nameTextField.textPublisher
+            .assign(to: \.name, on: viewModel)
+            .store(in: &subscriptions)
+        
+        lastNameTextField.textPublisher
+            .assign(to: \.lastName, on: viewModel)
+            .store(in: &subscriptions)
+        
+        emailTextField.textPublisher
+            .assign(to: \.email, on: viewModel)
+            .store(in: &subscriptions)
     }
 }
