@@ -56,19 +56,16 @@ private extension LoginViewController {
     }
     
     func setupActions() {
-        loginButton.addAction { [unowned self] _ in
-            self.viewModel.authenticate(
-                username: self.username.text ?? "",
-                password: self.password.text ?? ""
-            )
+        loginButton.addAction { [weak viewModel] _ in
+            viewModel?.authenticate()
         }
         
-        forgotButton.addAction { [unowned viewModel] _ in
-            viewModel.forgotPassword()
+        forgotButton.addAction { [weak viewModel] _ in
+            viewModel?.forgotPassword()
         }
         
-        signupButton.addAction { [unowned viewModel] _ in
-            viewModel.signup()
+        signupButton.addAction { [weak viewModel] _ in
+            viewModel?.signup()
         }
     }
     
@@ -77,6 +74,19 @@ private extension LoginViewController {
             .dropFirst()
             .receive(on: DispatchQueue.main)
             .assign(to: \.isLoading, on: loginButton)
+            .store(in: &subscriptions)
+        
+        viewModel.$isValid
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isEnabled, on: loginButton)
+            .store(in: &subscriptions)
+        
+        username.textPublisher
+            .assign(to: \.username, on: viewModel)
+            .store(in: &subscriptions)
+        
+        password.textPublisher
+            .assign(to: \.password, on: viewModel)
             .store(in: &subscriptions)
     }
 }

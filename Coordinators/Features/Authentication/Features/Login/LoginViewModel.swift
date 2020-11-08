@@ -12,17 +12,23 @@ protocol LoginDelegate: class {
 }
 
 class LoginViewModel: ObservableObject {
-    private weak var delegate: LoginDelegate?
-    
-    let screenName = "Login"
+    @Published var username = ""
+    @Published var password = ""
     
     @Published var isLoading = false
+    @Published var isValid = false
+        
+    let screenName = "Login"
+    
+    private weak var delegate: LoginDelegate?
+    private var subscriptions: Set<AnyCancellable> = []
     
     init(delegate: LoginDelegate) {
         self.delegate = delegate
+        setupBindings()
     }
     
-    func authenticate(username: String, password: String) {
+    func authenticate() {
         isLoading = true
         
         DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
@@ -39,5 +45,14 @@ class LoginViewModel: ObservableObject {
     
     func signup() {
         delegate?.willSignup()
+    }
+}
+
+private extension LoginViewModel {
+    func setupBindings() {
+        Publishers.CombineLatest($username, $password)
+            .map { !($0.0.isEmpty || $0.1.isEmpty) }
+            .assign(to: \.isValid, on: self)
+            .store(in: &subscriptions)
     }
 }

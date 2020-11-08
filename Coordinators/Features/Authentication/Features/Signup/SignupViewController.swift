@@ -10,11 +10,7 @@ class SignupViewController: ViewController {
     private let lastNameTextField = TextField(placeholder: "Last Name")
     private let emailTextField = TextField(placeholder: "Email")
     
-    private let signupButton: LoadableRoundedButton = {
-        let btn = LoadableRoundedButton("Signup")
-        btn.isEnabled = false
-        return btn
-    }()
+    private let signupButton = LoadableRoundedButton("Signup")
     
     private let viewModel: SignupViewModel
     private var subscriptions: Set<AnyCancellable> = []
@@ -65,7 +61,6 @@ private extension SignupViewController {
             .store(in: &subscriptions)
         
         viewModel.$isValid
-            .dropFirst()
             .receive(on: DispatchQueue.main)
             .assign(to: \.isEnabled, on: signupButton)
             .store(in: &subscriptions)
