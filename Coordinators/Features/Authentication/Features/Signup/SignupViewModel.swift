@@ -17,6 +17,8 @@ class SignupViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var isValid = false
     
+    var screenName = "Hello...!"
+    
     private var subscriptions: Set<AnyCancellable> = []
     private weak var delegate: SignupDelegate?
     

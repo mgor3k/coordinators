@@ -10,11 +10,8 @@ class SignupViewController: ViewController {
     private let lastNameTextField = TextField(placeholder: "Last Name")
     private let emailTextField = TextField(placeholder: "Email")
     
-    private lazy var signupButton: LoadableRoundedButton = {
+    private let signupButton: LoadableRoundedButton = {
         let btn = LoadableRoundedButton("Signup")
-        btn.addAction { [weak viewModel] _ in
-            viewModel?.signup()
-        }
         btn.isEnabled = false
         return btn
     }()
@@ -28,11 +25,11 @@ class SignupViewController: ViewController {
     }
     
     override func setup() {
-        // TODO: Move colors
-        view.backgroundColor = UIColor(red: 0.16, green: 0.21, blue: 0.58, alpha: 1)
-        title = "Hello...!"
+        view.backgroundColor = Colors.authBackground
+        title = viewModel.screenName
         
         setupLayout()
+        setupActions()
         setupBindings()
     }
 }
@@ -51,6 +48,12 @@ private extension SignupViewController {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().offset(48)
             $0.trailing.equalToSuperview().offset(-48)
+        }
+    }
+    
+    func setupActions() {
+        signupButton.addAction { [weak viewModel] _ in
+            viewModel?.signup()
         }
     }
     

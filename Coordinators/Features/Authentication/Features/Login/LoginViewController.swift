@@ -24,7 +24,7 @@ class LoginViewController: ViewController {
     
     override func setup() {
         title = viewModel.screenName
-        view.backgroundColor = UIColor(red: 0.16, green: 0.21, blue: 0.58, alpha: 1)
+        view.backgroundColor = Colors.authBackground
         setupLayout()
         setupActions()
         setupBindings()

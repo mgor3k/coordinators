@@ -55,6 +55,7 @@
 		BFBD1DA9254C94DB00E6B750 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD1DA8254C94DB00E6B750 /* HomeCoordinator.swift */; };
 		BFD46D8A25581FA700DD871E /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46D8925581FA700DD871E /* SignupViewModel.swift */; };
 		BFD46D932558259B00DD871E /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46D922558259B00DD871E /* UITextField+.swift */; };
+		BFD46D98255859AE00DD871E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46D97255859AE00DD871E /* Colors.swift */; };
 		BFE7A4F1254EF08300E64EA5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */; };
 		BFF4D7B42555F373009C93CC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF4D7B32555F373009C93CC /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -109,6 +110,7 @@
 		BFBD1DA8254C94DB00E6B750 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		BFD46D8925581FA700DD871E /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		BFD46D922558259B00DD871E /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		BFD46D97255859AE00DD871E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BFF4D7B32555F373009C93CC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -381,6 +383,7 @@
 			children = (
 				BFBD1D8A254C88FE00E6B750 /* Assets.xcassets */,
 				BFBD1D8C254C88FE00E6B750 /* LaunchScreen.storyboard */,
+				BFD46D97255859AE00DD871E /* Colors.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				BF5FA6B5254C99520093BBBD /* TextField.swift in Sources */,
 				BF3AA694254EFED1006ADE3A /* PasswordReminderViewController.swift in Sources */,
 				BFBD1D86254C88FA00E6B750 /* HomeViewController.swift in Sources */,
+				BFD46D98255859AE00DD871E /* Colors.swift in Sources */,
 				BF3AA6AC2551E548006ADE3A /* HomeCell.swift in Sources */,
 				BF3AA6BB2551E6CF006ADE3A /* UICollectionView+.swift in Sources */,
 				BFF4D7B42555F373009C93CC /* DetailsViewController.swift in Sources */,
