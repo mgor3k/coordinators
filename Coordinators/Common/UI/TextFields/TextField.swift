@@ -33,6 +33,7 @@ class TextField: UITextField {
         font = .systemFont(ofSize: 18, weight: .bold)
         textColor = .white
         tintColor = .white
+        delegate = self
         
         snp.makeConstraints {
             $0.height.equalTo(50)
@@ -42,5 +43,12 @@ class TextField: UITextField {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension TextField: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

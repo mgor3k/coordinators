@@ -14,8 +14,12 @@ class LoginViewController: ViewController {
     private let forgotButton = InlineButton("Forgot password?")
     private let signupButton = InlineButton("New user? ", highlighted: "Signup")
     
+    private var stack: UIStackView!
+    
     private let viewModel: LoginViewModel
     private var subscriptions: Set<AnyCancellable> = []
+    
+    private var isKeyboardShowed = false
     
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
@@ -38,7 +42,7 @@ class LoginViewController: ViewController {
 
 private extension LoginViewController {
     func setupLayout() {
-        let stack = VStack([
+        stack = VStack([
             username,
             password,
             Trailing(forgotButton),
@@ -56,8 +60,9 @@ private extension LoginViewController {
     }
     
     func setupActions() {
-        loginButton.addAction { [weak viewModel] _ in
-            viewModel?.authenticate()
+        loginButton.addAction { [weak self] _ in
+            self?.view.endEditing(true)
+            self?.viewModel.authenticate()
         }
         
         forgotButton.addAction { [weak viewModel] _ in
@@ -70,6 +75,11 @@ private extension LoginViewController {
     }
     
     func setupBindings() {
+        setupViewModelBindings()
+        setupKeyboardBindings()
+    }
+    
+    func setupViewModelBindings() {
         viewModel.$isLoading
             .dropFirst()
             .receive(on: DispatchQueue.main)
@@ -88,5 +98,49 @@ private extension LoginViewController {
         password.textPublisher
             .assign(to: \.password, on: viewModel)
             .store(in: &subscriptions)
+    }
+}
+
+// MARK: - Keyboard
+private extension LoginViewController {
+    func setupKeyboardBindings() {
+        UIResponder.keyboardWillShowPublisher()
+            .sink { [weak self] keyboardRect in
+                guard let self = self, !self.isKeyboardShowed else { return }
+                self.adjustView(to: keyboardRect.origin.y)
+                self.isKeyboardShowed = true
+            }
+            .store(in: &subscriptions)
+        
+        UIResponder.keyboardWillHidePublisher()
+            .sink { [weak self] _ in
+                self?.adjustView(to: .zero)
+                self?.isKeyboardShowed = false
+            }
+            .store(in: &subscriptions)
+    }
+    
+    func adjustView(to keyboardOriginY: CGFloat) {
+        guard keyboardOriginY != .zero else {
+            moveStack(offset: .zero)
+            return
+        }
+        
+        let viewEnd = signupButton.convert(signupButton.frame, to: view).origin.y
+        let remaining = 32 - (viewEnd - keyboardOriginY)
+        
+        if remaining > 0 {
+            moveStack(offset: -remaining)
+        }
+    }
+    
+    func moveStack(offset: CGFloat) {
+        stack.snp.updateConstraints {
+            $0.centerY.equalToSuperview().offset(offset)
+        }
+        
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
     }
 }
