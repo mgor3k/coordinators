@@ -12,11 +12,15 @@ protocol LoginDelegate: class {
 }
 
 class LoginViewModel: ObservableObject {
-    weak var delegate: LoginDelegate?
+    private weak var delegate: LoginDelegate?
     
     let screenName = "Login"
     
     @Published var isLoading = false
+    
+    init(delegate: LoginDelegate) {
+        self.delegate = delegate
+    }
     
     func authenticate(username: String, password: String) {
         isLoading = true

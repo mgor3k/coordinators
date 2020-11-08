@@ -26,8 +26,7 @@ class AuthenticationCoordinator: Coordinator {
 
 private extension AuthenticationCoordinator {
     func showLogin() {
-        let viewModel = LoginViewModel()
-        viewModel.delegate = self
+        let viewModel = LoginViewModel(delegate: self)
         let vc = LoginViewController(viewModel: viewModel)
         navigationController.show(vc, sender: self)
     }
@@ -38,7 +37,8 @@ private extension AuthenticationCoordinator {
     }
     
     func showSignup() {
-        let vc = SignupViewController()
+        let vm = SignupViewModel()
+        let vc = SignupViewController(viewModel: vm)
         navigationController.show(vc, sender: self)
     }
 }

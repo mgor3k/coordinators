@@ -13,6 +13,12 @@ class Button: UIButton {
         }
     }
     
+    override var isEnabled: Bool {
+        didSet {
+            alpha = isEnabled ? 1 : 0.3
+        }
+    }
+    
     init() {
         super.init(frame: .zero)
         setup()

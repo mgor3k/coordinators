@@ -53,6 +53,9 @@
 		BFBD1DA2254C936500E6B750 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD1DA1254C936500E6B750 /* AuthenticationCoordinator.swift */; };
 		BFBD1DA5254C948C00E6B750 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD1DA4254C948C00E6B750 /* LoginViewController.swift */; };
 		BFBD1DA9254C94DB00E6B750 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD1DA8254C94DB00E6B750 /* HomeCoordinator.swift */; };
+		BFD46D8A25581FA700DD871E /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46D8925581FA700DD871E /* SignupViewModel.swift */; };
+		BFD46D8E2558204700DD871E /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46D8D2558204700DD871E /* SignupModel.swift */; };
+		BFD46D932558259B00DD871E /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46D922558259B00DD871E /* UITextField+.swift */; };
 		BFE7A4F1254EF08300E64EA5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */; };
 		BFF4D7B42555F373009C93CC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF4D7B32555F373009C93CC /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -105,6 +108,9 @@
 		BFBD1DA1254C936500E6B750 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		BFBD1DA4254C948C00E6B750 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BFBD1DA8254C94DB00E6B750 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		BFD46D8925581FA700DD871E /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		BFD46D8D2558204700DD871E /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
+		BFD46D922558259B00DD871E /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BFF4D7B32555F373009C93CC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,11 +202,8 @@
 		BF1FBB12254C964900FD3BD0 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				BF70265325581CD00040221A /* Features */,
 				BFBD1DA1254C936500E6B750 /* AuthenticationCoordinator.swift */,
-				BFBD1DA4254C948C00E6B750 /* LoginViewController.swift */,
-				BF3AA693254EFED1006ADE3A /* PasswordReminderViewController.swift */,
-				BF3AA697254EFF66006ADE3A /* SignupViewController.swift */,
-				BF062F5D254CAEDE003E1662 /* LoginViewModel.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -288,11 +291,49 @@
 			path = Factory;
 			sourceTree = "<group>";
 		};
+		BF70265325581CD00040221A /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				BF70265725581CE60040221A /* Remind */,
+				BF70265625581CDF0040221A /* Signup */,
+				BF70265425581CD60040221A /* Login */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		BF70265425581CD60040221A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BFBD1DA4254C948C00E6B750 /* LoginViewController.swift */,
+				BF062F5D254CAEDE003E1662 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		BF70265625581CDF0040221A /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				BFD46D8C2558204000DD871E /* Model */,
+				BF3AA697254EFF66006ADE3A /* SignupViewController.swift */,
+				BFD46D8925581FA700DD871E /* SignupViewModel.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		BF70265725581CE60040221A /* Remind */ = {
+			isa = PBXGroup;
+			children = (
+				BF3AA693254EFED1006ADE3A /* PasswordReminderViewController.swift */,
+			);
+			path = Remind;
+			sourceTree = "<group>";
+		};
 		BFB7FC63254EF75300DE13CB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				BFB7FC64254EF75E00DE13CB /* UIWindow+.swift */,
 				BF3AA6BA2551E6CF006ADE3A /* UICollectionView+.swift */,
+				BFD46D922558259B00DD871E /* UITextField+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -355,6 +396,14 @@
 				BFBD1D9D254C926600E6B750 /* AppCoordinator.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		BFD46D8C2558204000DD871E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BFD46D8D2558204700DD871E /* SignupModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BFE7A4F4254EF0EA00E64EA5 /* Settings */ = {
@@ -454,6 +503,7 @@
 				BFBD1DA5254C948C00E6B750 /* LoginViewController.swift in Sources */,
 				BFBD1D9E254C926600E6B750 /* AppCoordinator.swift in Sources */,
 				BF3AA6B82551E5DE006ADE3A /* HomeSection.swift in Sources */,
+				BFD46D8E2558204700DD871E /* SignupModel.swift in Sources */,
 				BF3AA6B42551E5CE006ADE3A /* HomeModel.swift in Sources */,
 				BFBD1DA2254C936500E6B750 /* AuthenticationCoordinator.swift in Sources */,
 				BF3AA69C254F04BA006ADE3A /* SecureTextField.swift in Sources */,
@@ -465,6 +515,7 @@
 				BFB7FC70254EF9B900DE13CB /* SettingsCoordinator.swift in Sources */,
 				BF70264125573D8F0040221A /* SettingsViewModel.swift in Sources */,
 				BFE7A4F1254EF08300E64EA5 /* TabBarController.swift in Sources */,
+				BFD46D932558259B00DD871E /* UITextField+.swift in Sources */,
 				BF70264F255748E10040221A /* Factory.swift in Sources */,
 				BF3AA6A82551E0BD006ADE3A /* HomeCompositionalLayout.swift in Sources */,
 				BF5FA6BA254C9A920093BBBD /* ViewController.swift in Sources */,
@@ -483,6 +534,7 @@
 				BF5FA6BD254C9B770093BBBD /* NavigationController.swift in Sources */,
 				BFBD1DA9254C94DB00E6B750 /* HomeCoordinator.swift in Sources */,
 				BF08E7AE25571521006F7700 /* DetailsViewModel.swift in Sources */,
+				BFD46D8A25581FA700DD871E /* SignupViewModel.swift in Sources */,
 				BF062F64254CB330003E1662 /* Coordinator.swift in Sources */,
 				BF08E7B525571ACC006F7700 /* HomeSuccessViewController.swift in Sources */,
 				BF5FA6C6254CA6010093BBBD /* VStack.swift in Sources */,
