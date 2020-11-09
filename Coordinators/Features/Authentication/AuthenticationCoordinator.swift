@@ -60,9 +60,13 @@ extension AuthenticationCoordinator: LoginDelegate {
 extension AuthenticationCoordinator: SignupDelegate {
     func didSignup() {
         let vc = AuthSuccessViewController()
+        vc.onFinished = { [weak self] in
+            self?.finish()
+        }
         navigationController.present(vc, animated: true)
-        
-        // TODO: On screen dismiss
-//        delegate?.didAuthenticate(self)
+    }
+    
+    private func finish() {
+        delegate?.didAuthenticate(self)
     }
 }
