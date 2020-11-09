@@ -58,6 +58,7 @@
 		BFD46D98255859AE00DD871E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46D97255859AE00DD871E /* Colors.swift */; };
 		BFD46D9B2558629600DD871E /* UIResponder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46D9A2558629600DD871E /* UIResponder+.swift */; };
 		BFD46D9F2559C7FA00DD871E /* AuthSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46D9E2559C7FA00DD871E /* AuthSuccessViewController.swift */; };
+		BFD46DA42559CCC300DD871E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BFD46DA32559CCC300DD871E /* Lottie */; };
 		BFE7A4F1254EF08300E64EA5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */; };
 		BFF4D7B42555F373009C93CC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF4D7B32555F373009C93CC /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -125,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF1FBB19254C96E900FD3BD0 /* SnapKit in Frameworks */,
+				BFD46DA42559CCC300DD871E /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +451,7 @@
 			name = Coordinators;
 			packageProductDependencies = (
 				BF1FBB18254C96E900FD3BD0 /* SnapKit */,
+				BFD46DA32559CCC300DD871E /* Lottie */,
 			);
 			productName = Coordinators;
 			productReference = BFBD1D7E254C88FA00E6B750 /* Coordinators.app */;
@@ -479,6 +482,7 @@
 			mainGroup = BFBD1D75254C88F900E6B750;
 			packageReferences = (
 				BF1FBB17254C96E900FD3BD0 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				BFD46DA22559CCC300DD871E /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = BFBD1D7F254C88FA00E6B750 /* Products */;
 			projectDirPath = "";
@@ -757,6 +761,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		BFD46DA22559CCC300DD871E /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.9;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -764,6 +776,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BF1FBB17254C96E900FD3BD0 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		BFD46DA32559CCC300DD871E /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFD46DA22559CCC300DD871E /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
