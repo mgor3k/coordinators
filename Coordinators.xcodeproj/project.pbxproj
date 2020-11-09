@@ -57,6 +57,7 @@
 		BFD46D932558259B00DD871E /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46D922558259B00DD871E /* UITextField+.swift */; };
 		BFD46D98255859AE00DD871E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46D97255859AE00DD871E /* Colors.swift */; };
 		BFD46D9B2558629600DD871E /* UIResponder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46D9A2558629600DD871E /* UIResponder+.swift */; };
+		BFD46D9F2559C7FA00DD871E /* AuthSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46D9E2559C7FA00DD871E /* AuthSuccessViewController.swift */; };
 		BFE7A4F1254EF08300E64EA5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */; };
 		BFF4D7B42555F373009C93CC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF4D7B32555F373009C93CC /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -113,6 +114,7 @@
 		BFD46D922558259B00DD871E /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		BFD46D97255859AE00DD871E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BFD46D9A2558629600DD871E /* UIResponder+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+.swift"; sourceTree = "<group>"; };
+		BFD46D9E2559C7FA00DD871E /* AuthSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSuccessViewController.swift; sourceTree = "<group>"; };
 		BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BFF4D7B32555F373009C93CC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -296,6 +298,7 @@
 		BF70265325581CD00040221A /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				BFD46D9D2559C7AA00DD871E /* Success */,
 				BF70265725581CE60040221A /* Remind */,
 				BF70265625581CDF0040221A /* Signup */,
 				BF70265425581CD60040221A /* Login */,
@@ -399,6 +402,14 @@
 				BFBD1D9D254C926600E6B750 /* AppCoordinator.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		BFD46D9D2559C7AA00DD871E /* Success */ = {
+			isa = PBXGroup;
+			children = (
+				BFD46D9E2559C7FA00DD871E /* AuthSuccessViewController.swift */,
+			);
+			path = Success;
 			sourceTree = "<group>";
 		};
 		BFE7A4F4254EF0EA00E64EA5 /* Settings */ = {
@@ -527,6 +538,7 @@
 				BFF4D7B42555F373009C93CC /* DetailsViewController.swift in Sources */,
 				BF3AA6A52551D250006ADE3A /* HomeViewModel.swift in Sources */,
 				BFBD1D82254C88FA00E6B750 /* AppDelegate.swift in Sources */,
+				BFD46D9F2559C7FA00DD871E /* AuthSuccessViewController.swift in Sources */,
 				BF5FA6BD254C9B770093BBBD /* NavigationController.swift in Sources */,
 				BFBD1DA9254C94DB00E6B750 /* HomeCoordinator.swift in Sources */,
 				BF08E7AE25571521006F7700 /* DetailsViewModel.swift in Sources */,

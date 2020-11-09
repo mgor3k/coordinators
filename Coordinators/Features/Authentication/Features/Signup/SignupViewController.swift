@@ -48,8 +48,9 @@ private extension SignupViewController {
     }
     
     func setupActions() {
-        signupButton.addAction { [weak viewModel] _ in
-            viewModel?.signup()
+        signupButton.addAction { [weak self] _ in
+            self?.viewModel.signup()
+            self?.view.endEditing(true)
         }
     }
     
