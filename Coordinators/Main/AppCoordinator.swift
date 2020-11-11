@@ -6,7 +6,7 @@ import UIKit
 
 class AppCoordinator: Coordinator {
     private let window: UIWindow
-    private var isLoggedIn = false
+    private var isLoggedIn = true
     
     var children: [Coordinator] = []
     

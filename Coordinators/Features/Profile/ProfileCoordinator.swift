@@ -26,6 +26,7 @@ class ProfileCoordinator: Coordinator {
     func start() {
         let vm = ProfileViewModel(delegate: self)
         let vc = ProfileViewController(viewModel: vm)
+        navigationController.barColor = .black
         navigationController.viewControllers = [vc]
     }
 }
