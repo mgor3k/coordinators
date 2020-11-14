@@ -32,6 +32,15 @@ class ProfileCoordinator: Coordinator {
 }
 
 extension ProfileCoordinator: ProfileDelegate {
+    func didSelectOption(_ option: ProfileModel) {
+        print(option.title)
+        
+        navigationController.dismiss(animated: true)
+        didClose()
+    }
+}
+
+private extension ProfileCoordinator {
     func didClose() {
         delegate?.didClose(self)
     }

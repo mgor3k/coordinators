@@ -73,6 +73,7 @@ private extension ProfileViewController {
     
     func setupCollectionView() {
         collectionView.dataSource = makeDataSource()
+        collectionView.delegate = self
         collectionView.registerHeader(UICollectionViewListCell.self)
     }
     
@@ -81,5 +82,13 @@ private extension ProfileViewController {
         collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+    }
+}
+
+extension ProfileViewController: UICollectionViewDelegate {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath) {
+        viewModel.select(atIndexPath: indexPath)
     }
 }

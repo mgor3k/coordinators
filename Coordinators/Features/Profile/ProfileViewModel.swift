@@ -4,7 +4,9 @@
 
 import Foundation
 
-protocol ProfileDelegate: class {}
+protocol ProfileDelegate: class {
+    func didSelectOption(_ option: ProfileModel)
+}
 
 class ProfileViewModel {
     private weak var delegate: ProfileDelegate?
@@ -23,5 +25,11 @@ class ProfileViewModel {
     
     init(delegate: ProfileDelegate) {
         self.delegate = delegate
+    }
+    
+    func select(atIndexPath indexPath: IndexPath) {
+        delegate?.didSelectOption(
+            models[indexPath.section].1[indexPath.item]
+        )
     }
 }
