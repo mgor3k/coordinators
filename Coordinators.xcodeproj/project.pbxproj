@@ -60,9 +60,7 @@
 		BFD46D9F2559C7FA00DD871E /* AuthSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46D9E2559C7FA00DD871E /* AuthSuccessViewController.swift */; };
 		BFD46DA42559CCC300DD871E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BFD46DA32559CCC300DD871E /* Lottie */; };
 		BFD46DA82559CDA300DD871E /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = BFD46DA72559CDA300DD871E /* success.json */; };
-		BFD46DAD255C60FD00DD871E /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46DAC255C60FD00DD871E /* ProfileCell.swift */; };
 		BFD46DB1255C6CF600DD871E /* ProfileCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46DB0255C6CF600DD871E /* ProfileCompositionalLayout.swift */; };
-		BFD46DB4255C6D3100DD871E /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46DB3255C6D3100DD871E /* ProfileHeader.swift */; };
 		BFD46DB8255C72F700DD871E /* ProfileSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46DB7255C72F700DD871E /* ProfileSection.swift */; };
 		BFD46DBB255C730700DD871E /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46DBA255C730700DD871E /* ProfileModel.swift */; };
 		BFE7A4F1254EF08300E64EA5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */; };
@@ -123,9 +121,7 @@
 		BFD46D9A2558629600DD871E /* UIResponder+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+.swift"; sourceTree = "<group>"; };
 		BFD46D9E2559C7FA00DD871E /* AuthSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSuccessViewController.swift; sourceTree = "<group>"; };
 		BFD46DA72559CDA300DD871E /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
-		BFD46DAC255C60FD00DD871E /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		BFD46DB0255C6CF600DD871E /* ProfileCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCompositionalLayout.swift; sourceTree = "<group>"; };
-		BFD46DB3255C6D3100DD871E /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		BFD46DB7255C72F700DD871E /* ProfileSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSection.swift; sourceTree = "<group>"; };
 		BFD46DBA255C730700DD871E /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -440,8 +436,6 @@
 		BFD46DAB255C60F100DD871E /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				BFD46DAC255C60FD00DD871E /* ProfileCell.swift */,
-				BFD46DB3255C6D3100DD871E /* ProfileHeader.swift */,
 				BFD46DB0255C6CF600DD871E /* ProfileCompositionalLayout.swift */,
 			);
 			path = UI;
@@ -553,7 +547,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFD46DAD255C60FD00DD871E /* ProfileCell.swift in Sources */,
 				BFBD1DA5254C948C00E6B750 /* LoginViewController.swift in Sources */,
 				BFBD1D9E254C926600E6B750 /* AppCoordinator.swift in Sources */,
 				BF3AA6B82551E5DE006ADE3A /* HomeSection.swift in Sources */,
@@ -565,7 +558,6 @@
 				BFB7FC77254EFC9000DE13CB /* RoundedButton.swift in Sources */,
 				BF3AA6A2254F5304006ADE3A /* LoadableRoundedButton.swift in Sources */,
 				BF70263C25572A550040221A /* MockService.swift in Sources */,
-				BFD46DB4255C6D3100DD871E /* ProfileHeader.swift in Sources */,
 				BFD46DB8255C72F700DD871E /* ProfileSection.swift in Sources */,
 				BFB7FC70254EF9B900DE13CB /* SettingsCoordinator.swift in Sources */,
 				BF70264125573D8F0040221A /* SettingsViewModel.swift in Sources */,

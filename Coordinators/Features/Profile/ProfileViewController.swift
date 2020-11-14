@@ -38,15 +38,21 @@ class ProfileViewController: ViewController {
 
 private extension ProfileViewController {
     func makeDataSource() -> ProfileDataSource {
+        let registration = UICollectionView.CellRegistration<UICollectionViewListCell, ProfileModel> { cell, indexPath, model in
+            var content = cell.defaultContentConfiguration()
+            content.text = model.title
+            cell.contentConfiguration = content
+        }
+        
         let ds = ProfileDataSource(collectionView: collectionView) { cv, indexPath, model in
-            let cell = cv.dequeue(ProfileCell.self, for: indexPath)
-            cell.setTitle(model.title)
-            return cell
+            cv.dequeueConfiguredReusableCell(using: registration, for: indexPath, item: model)
         }
         
         ds.supplementaryViewProvider = { cv, kind, indexPath in
-            let header = cv.dequeueSupplementary(ProfileHeader.self, ofKind: kind, for: indexPath)
-            header.setTitle(ProfileSection.allCases[indexPath.section].title)
+            let header = cv.dequeueSupplementary(UICollectionViewListCell.self, ofKind: kind, for: indexPath)
+            var content = header.defaultContentConfiguration()
+            content.text = ProfileSection.allCases[indexPath.section].title
+            header.contentConfiguration = content
             return header
         }
         
@@ -67,8 +73,7 @@ private extension ProfileViewController {
     
     func setupCollectionView() {
         collectionView.dataSource = makeDataSource()
-        collectionView.register(ProfileCell.self)
-        collectionView.registerHeader(ProfileHeader.self)
+        collectionView.registerHeader(UICollectionViewListCell.self)
     }
     
     func setupLayout() {
