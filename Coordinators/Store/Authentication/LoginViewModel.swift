@@ -17,6 +17,8 @@ class LoginViewModel: ObservableObject {
     
     @Published var isLoading = false
     @Published var isValid = false
+    
+    @Published var error: Error?
         
     let screenName = "Login"
     
@@ -34,7 +36,11 @@ class LoginViewModel: ObservableObject {
         DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
             self?.isLoading = false
             DispatchQueue.main.async {
-                self?.delegate?.didLogin()
+                if self?.username.lowercased() == "error" {
+                    self?.error = Error.invalidLogin
+                } else {
+                    self?.delegate?.didLogin()
+                }
             }
         }
     }
@@ -54,5 +60,11 @@ private extension LoginViewModel {
             .map { !($0.0.isEmpty || $0.1.isEmpty) }
             .assign(to: \.isValid, on: self)
             .store(in: &subscriptions)
+    }
+}
+
+extension LoginViewModel {
+    enum Error: Swift.Error {
+        case invalidLogin
     }
 }
