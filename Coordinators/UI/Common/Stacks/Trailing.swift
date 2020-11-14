@@ -6,6 +6,9 @@ import UIKit
 
 class Trailing: HStack {
     init(_ item: StackItem) {
-        super.init([UIView(), item.view])
+        super.init {
+            UIView()
+            item.view
+        }
     }
 }

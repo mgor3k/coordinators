@@ -6,9 +6,9 @@ import UIKit
 
 class VStack: HStack {
     override init(
-        _ content: [StackItem],
-        spacing: CGFloat = 0) {
-        super.init(content, spacing: spacing)
+        spacing: CGFloat = 0,
+        @StackBuilder _ content: () -> [StackItem]) {
+        super.init(spacing: spacing, content)
         axis = .vertical
     }
 }

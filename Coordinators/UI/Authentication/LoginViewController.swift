@@ -42,13 +42,13 @@ class LoginViewController: ViewController {
 
 private extension LoginViewController {
     func setupLayout() {
-        stack = VStack([
-            username,
-            password,
-            Trailing(forgotButton),
-            Spaced(Centered(loginButton), 32),
+        stack = VStack(spacing: 16) {
+            username
+            password
+            Trailing(forgotButton)
+            Spaced(Centered(loginButton), 32)
             Centered(signupButton)
-        ], spacing: 16)
+        }
         
         view.addSubview(stack)
         

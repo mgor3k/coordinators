@@ -6,7 +6,11 @@ import UIKit
 
 class Centered: HStack {
     init(_ item: StackItem) {
-        super.init([UIView(), item.view, UIView()])
+        super.init {
+            UIView()
+            item.view
+            UIView()
+        }
         distribution = .equalCentering
     }
 }

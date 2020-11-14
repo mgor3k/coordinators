@@ -32,12 +32,12 @@ class SignupViewController: ViewController {
 
 private extension SignupViewController {
     func setupLayout() {
-        let stack = VStack([
-            nameTextField,
-            lastNameTextField,
-            emailTextField,
+        let stack = VStack(spacing: 16) {
+            nameTextField
+            lastNameTextField
+            emailTextField
             Spaced(Centered(signupButton), 32)
-        ], spacing: 16)
+        }
         
         view.addSubview(stack)
         stack.snp.makeConstraints {

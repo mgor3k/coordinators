@@ -5,14 +5,15 @@
 import UIKit
 
 class HStack: UIStackView {
-    init(
-        _ content: [StackItem],
-        spacing: CGFloat = 0) {
+    init(spacing: CGFloat = 0,
+         @StackBuilder _ content: () -> [StackItem]) {
         super.init(frame: .zero)
         self.spacing = spacing
         
+        let views = content()
+        
         var prevView: UIView?
-        for item in content {
+        for item in views {
             let view = item.view
             addArrangedSubview(view)
             if let spacing = item.spacing, let prevView = prevView {

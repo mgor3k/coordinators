@@ -31,7 +31,11 @@ class HomeCell: CollectionViewCell {
 
 private extension HomeCell {
     func setupLayout() {
-        let stack = HStack([titleLabel, UIView(), boughtImageView])
+        let stack = HStack {
+            titleLabel
+            UIView()
+            boughtImageView
+        }
         contentView.addSubview(stack)
         
         stack.snp.makeConstraints {

@@ -64,6 +64,7 @@
 		BFD46DB8255C72F700DD871E /* ProfileSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46DB7255C72F700DD871E /* ProfileSection.swift */; };
 		BFD46DBB255C730700DD871E /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD46DBA255C730700DD871E /* ProfileModel.swift */; };
 		BFE7A4F1254EF08300E64EA5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */; };
+		BFE93D32256036BD00CB4351 /* StackBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE93D31256036BD00CB4351 /* StackBuilder.swift */; };
 		BFF4D7B42555F373009C93CC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF4D7B32555F373009C93CC /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +126,7 @@
 		BFD46DB7255C72F700DD871E /* ProfileSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSection.swift; sourceTree = "<group>"; };
 		BFD46DBA255C730700DD871E /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		BFE93D31256036BD00CB4351 /* StackBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackBuilder.swift; sourceTree = "<group>"; };
 		BFF4D7B32555F373009C93CC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				BF52695A254CA76800638F23 /* StackItem.swift */,
+				BFE93D31256036BD00CB4351 /* StackBuilder.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFE93D32256036BD00CB4351 /* StackBuilder.swift in Sources */,
 				BF9E4A3025602FA500BB9059 /* HomeModel.swift in Sources */,
 				BFBD1DA5254C948C00E6B750 /* LoginViewController.swift in Sources */,
 				BFBD1D9E254C926600E6B750 /* AppCoordinator.swift in Sources */,
