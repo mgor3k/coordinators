@@ -6,10 +6,6 @@ import Foundation
 
 @_functionBuilder
 struct StackBuilder {
-    static func buildBlock() -> [StackItem] { [] }
-}
-
-extension StackBuilder {
     static func buildBlock(_ views: StackItem...) -> [StackItem] {
         views
     }
