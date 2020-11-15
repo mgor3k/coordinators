@@ -36,9 +36,9 @@ private extension AppCoordinator {
         let tabBar = TabBarController()
         
         let home = factory.makeHome()
-        let settings = factory.makeSettings()
+        let Profile = factory.makeProfile()
         
-        [home, settings].forEach {
+        [home, Profile].forEach {
             attach($0.coordinator)
             $0.coordinator.start()
             tabBar.addVC($0.navigation)

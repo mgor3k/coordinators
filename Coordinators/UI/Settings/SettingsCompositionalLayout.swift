@@ -4,7 +4,7 @@
 
 import UIKit
 
-class ProfileCompositionalLayout {
+class SettingsCompositionalLayout {
     static func create() -> UICollectionViewCompositionalLayout {
         .init { _, environment in
             var configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)

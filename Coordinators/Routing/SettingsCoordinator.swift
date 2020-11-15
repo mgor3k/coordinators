@@ -1,40 +1,48 @@
 //
-//  Created by Maciej Gorecki on 30/10/2020.
+//  Created by Maciej Gorecki on 07/11/2020.
 //
 
-import UIKit
+import Foundation
 import Store
+
+protocol SettingsCoordinatorDelegate: class {
+    func didClose(_ coordinator: SettingsCoordinator)
+}
 
 class SettingsCoordinator: Coordinator {
     private let navigationController: NavigationController
+    private weak var delegate: SettingsCoordinatorDelegate?
+    
     var children: [Coordinator] = []
     
-    init(navigationController: NavigationController) {
+    init(navigationController: NavigationController, delegate: SettingsCoordinatorDelegate) {
         self.navigationController = navigationController
+        self.delegate = delegate
+        
+        navigationController.onDismiss = { [weak self] in
+            self?.didClose()
+        }
     }
     
     func start() {
         let store = SettingsStore(delegate: self)
         let vc = SettingsViewController(store: store)
+        navigationController.barColor = .black
         navigationController.viewControllers = [vc]
     }
 }
 
 extension SettingsCoordinator: SettingsDelegate {
-    func willShowProfile() {
-        let nav = NavigationController()
-        let coordinator = ProfileCoordinator(
-            navigationController: nav,
-            delegate: self
-        )
-        coordinator.start()
-        attach(coordinator)
-        navigationController.present(nav, animated: true)
+    func didSelectSettings(_ settings: Settings) {
+//        print(option.title)
+        
+        navigationController.dismiss(animated: true)
+        didClose()
     }
 }
 
-extension SettingsCoordinator: ProfileCoordinatorDelegate {
-    func didClose(_ coordinator: ProfileCoordinator) {
-        detach(coordinator)
+private extension SettingsCoordinator {
+    func didClose() {
+        delegate?.didClose(self)
     }
 }

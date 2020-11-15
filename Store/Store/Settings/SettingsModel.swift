@@ -4,11 +4,11 @@
 
 import Foundation
 
-public struct ProfileModel: Hashable {
+public struct Settings: Hashable {
     public let name: String
 }
 
-public struct ProfileGroup: Hashable {
+public struct SettingsGroup: Hashable {
     public let name: String
-    public let profiles: [ProfileModel]
+    public let Settings: [Settings]
 }

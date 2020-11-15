@@ -16,13 +16,13 @@ struct Factory {
         return (home, nav)
     }
     
-    func makeSettings() -> FactoryOutput {
+    func makeProfile() -> FactoryOutput {
         let nav = NavigationController()
-        nav.configure(title: "Settings", imageName: "gearshape")
-        let settings = SettingsCoordinator(
+        nav.configure(title: "Profile", imageName: "person.circle")
+        let Profile = ProfileCoordinator(
             navigationController: nav
         )
-        return (settings, nav)
+        return (Profile, nav)
     }
 }
 

@@ -5,5 +5,5 @@
 import Foundation
 
 public protocol ProfileDelegate: class {
-    func didSelectOption(_ option: ProfileModel)
+    func willShowSettings()
 }

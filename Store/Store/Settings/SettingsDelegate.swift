@@ -5,5 +5,5 @@
 import Foundation
 
 public protocol SettingsDelegate: class {
-    func willShowProfile()
+    func didSelectSettings(_ settings: Settings)
 }
