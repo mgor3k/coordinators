@@ -3,9 +3,10 @@
 //
 
 import Foundation
+import Store
 
 // Big fat mock with made up stuff
-class MockService {
+class MockService: HomeStoreNetworking, DetailsNetworking {
     static let shared = MockService()
     private init() { }
     
@@ -27,7 +28,7 @@ class MockService {
         .init(title: "Test1", isBought: false)
     ]
     
-    func getData() -> [HomeModel] {
+    func fetchData() -> [HomeModel] {
         defer {
             currentState = .all
         }
@@ -47,5 +48,9 @@ class MockService {
             }
             return currentData
         }
+    }
+    
+    func markAsBought(_ model: HomeModel) {
+        currentState = .bought(model)
     }
 }

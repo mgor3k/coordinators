@@ -5,32 +5,25 @@
 import Foundation
 import Combine
 
-protocol LoginDelegate: class {
-    func didLogin()
-    func willRememberPassword()
-    func willSignup()
-}
-
-class LoginViewModel: ObservableObject {
-    @Published var username = ""
-    @Published var password = ""
+public class LoginStore: ObservableObject {
+    @Published public var username = ""
+    @Published public var password = ""
     
-    @Published var isLoading = false
-    @Published var isValid = false
+    @Published public var isLoading = false
+    @Published public var isValid = false
     
-    @Published var error: Error?
-        
-    let screenName = "Login"
+    @Published public var error: Error?
     
     private weak var delegate: LoginDelegate?
     private var subscriptions: Set<AnyCancellable> = []
     
-    init(delegate: LoginDelegate) {
+    // TODO: Pass networking
+    public init(delegate: LoginDelegate) {
         self.delegate = delegate
         setupBindings()
     }
     
-    func authenticate() {
+    public func authenticate() {
         isLoading = true
         
         DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
@@ -45,26 +38,20 @@ class LoginViewModel: ObservableObject {
         }
     }
     
-    func forgotPassword() {
+    public func forgotPassword() {
         delegate?.willRememberPassword()
     }
     
-    func signup() {
+    public func signup() {
         delegate?.willSignup()
     }
 }
 
-private extension LoginViewModel {
+private extension LoginStore {
     func setupBindings() {
         Publishers.CombineLatest($username, $password)
             .map { !($0.0.isEmpty || $0.1.isEmpty) }
             .assign(to: \.isValid, on: self)
             .store(in: &subscriptions)
-    }
-}
-
-extension LoginViewModel {
-    enum Error: Swift.Error {
-        case invalidLogin
     }
 }

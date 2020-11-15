@@ -3,20 +3,21 @@
 //
 
 import UIKit
+import Store
 
 class SettingsViewController: ViewController {
-    private let viewModel: SettingsViewModel
+    private let store: SettingsStore
     
-    init(viewModel: SettingsViewModel) {
-        self.viewModel = viewModel
+    init(store: SettingsStore) {
+        self.store = store
         super.init()
     }
     
     override func setup() {
         view.backgroundColor = .yellow
         title = "Settings"
-        let action = UIAction { [weak viewModel] _ in
-            viewModel?.showProfile()
+        let action = UIAction { [weak store] _ in
+            store?.showProfile()
         }
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Profile", primaryAction: action)
     }

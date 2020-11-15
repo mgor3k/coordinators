@@ -10,14 +10,11 @@ class HomeSuccessViewController: ViewController {
         label.textColor = .white
         return label
     }()
-    
-    private let viewModel: HomeSuccessViewModel
-    
-    init(viewModel: HomeSuccessViewModel) {
-        self.viewModel = viewModel
+        
+    init(name: String) {
         super.init()
         
-        titleLabel.text = viewModel.title
+        titleLabel.text = "Thanks for buying " + name
     }
     
     override func setup() {

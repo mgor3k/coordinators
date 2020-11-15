@@ -4,17 +4,15 @@
 
 import Foundation
 
-protocol SettingsDelegate: class {
-    func willShowProfile()
-}
-
-class SettingsViewModel {
+public class SettingsStore {
     private weak var delegate: SettingsDelegate?
     
-    init(delegate: SettingsDelegate) {
+    public init(delegate: SettingsDelegate) {
         self.delegate = delegate
     }
-    
+}
+
+public extension SettingsStore {
     func showProfile() {
         delegate?.willShowProfile()
     }

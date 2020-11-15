@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import Store
 
 protocol ProfileCoordinatorDelegate: class {
     func didClose(_ coordinator: ProfileCoordinator)
@@ -24,8 +25,8 @@ class ProfileCoordinator: Coordinator {
     }
     
     func start() {
-        let vm = ProfileViewModel(delegate: self)
-        let vc = ProfileViewController(viewModel: vm)
+        let store = ProfileStore(delegate: self)
+        let vc = ProfileViewController(store: store)
         navigationController.barColor = .black
         navigationController.viewControllers = [vc]
     }
@@ -33,7 +34,7 @@ class ProfileCoordinator: Coordinator {
 
 extension ProfileCoordinator: ProfileDelegate {
     func didSelectOption(_ option: ProfileModel) {
-        print(option.title)
+//        print(option.title)
         
         navigationController.dismiss(animated: true)
         didClose()

@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import Store
 
 class HomeCoordinator: Coordinator {
     private let navigationController: NavigationController
@@ -15,11 +16,11 @@ class HomeCoordinator: Coordinator {
     }
     
     func start() {
-        let vm = HomeViewModel(delegate: self)
-        let vc = HomeViewController(viewModel: vm)
+        let store = HomeStore(network: MockService.shared, delegate: self)
+        let vc = HomeViewController(store: store)
         
-        onBought = { [weak vm] model in
-            vm?.fetch()
+        onBought = { [weak store] model in
+            store?.fetch()
         }
         
         navigationController.viewControllers = [vc]
@@ -41,17 +42,17 @@ extension HomeCoordinator: DetailsDelegate {
 
 private extension HomeCoordinator {
     func showDetails(model: HomeModel) {
-        let vm = DetailsViewModel(
+        let store = DetailsStore(
+            network: MockService.shared,
             model: model,
             delegate: self
         )
-        let vc = DetailsViewController(viewModel: vm)
+        let vc = DetailsViewController(store: store)
         navigationController.show(vc, sender: self)
     }
     
     func showSuccess(for model: HomeModel) {
-        let vm = HomeSuccessViewModel(model: model)
-        let vc = HomeSuccessViewController(viewModel: vm)
+        let vc = HomeSuccessViewController(name: model.title)
         navigationController.present(vc, animated: true) { [weak navigationController] in
             navigationController?.popToRootViewController(animated: false)
         }

@@ -4,6 +4,7 @@
 
 import UIKit
 import Combine
+import Store
 
 typealias HomeSnapshot = NSDiffableDataSourceSnapshot<HomeSection, HomeModel>
 typealias HomeDataSource = UICollectionViewDiffableDataSource<HomeSection, HomeModel>
@@ -20,27 +21,27 @@ class HomeViewController: ViewController {
     
     private let indicator = UIActivityIndicatorView(style: .large)
     private lazy var refreshControl: UIRefreshControl = {
-        let action = UIAction { [weak viewModel] _ in
+        let action = UIAction { [weak store] _ in
             // Mock adding new data on refresh
             MockService.shared.currentState = .addNew
-            viewModel?.fetch()
+            store?.fetch()
         }
         let rc = UIRefreshControl(frame: .zero, primaryAction: action)
         return rc
     }()
     
-    private let viewModel: HomeViewModel
+    private let store: HomeStore
     private lazy var dataSource = makeDataSource()
     private var subscriptions: Set<AnyCancellable> = []
     
-    init(viewModel: HomeViewModel) {
-        self.viewModel = viewModel
+    init(store: HomeStore) {
+        self.store = store
         super.init()
     }
     
     override func setup() {
         view.backgroundColor = .white
-        title = viewModel.screenName
+        title = "Home"
         
         setupCollectionView()
         setupIndicator()
@@ -70,7 +71,7 @@ private extension HomeViewController {
     }
     
     func setupBindings() {
-        viewModel.$isLoading
+        store.$isLoading
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] isLoading in
                 guard self?.refreshControl.isRefreshing == true else {
@@ -85,7 +86,7 @@ private extension HomeViewController {
             })
             .store(in: &subscriptions)
         
-        viewModel.$models
+        store.$models
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] _ in
                 self?.applySnapshot()
@@ -109,7 +110,7 @@ private extension HomeViewController {
     func applySnapshot(animatingDifferences: Bool = true) {
         var snapshot = HomeSnapshot()
         snapshot.appendSections([.main])
-        snapshot.appendItems(viewModel.models)
+        snapshot.appendItems(store.models)
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
 }
@@ -118,7 +119,7 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath) {
-        viewModel.didSelectModel(at: indexPath.item)
+        store.didSelectModel(at: indexPath.item)
     }
 }
 

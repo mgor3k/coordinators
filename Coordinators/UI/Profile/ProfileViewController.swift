@@ -3,9 +3,10 @@
 //
 
 import UIKit
+import Store
 
-typealias ProfileDataSource = UICollectionViewDiffableDataSource<ProfileSection, ProfileModel>
-typealias ProfileSnapshot = NSDiffableDataSourceSnapshot<ProfileSection, ProfileModel>
+typealias ProfileDataSource = UICollectionViewDiffableDataSource<ProfileGroup, ProfileModel>
+typealias ProfileSnapshot = NSDiffableDataSourceSnapshot<ProfileGroup, ProfileModel>
 
 class ProfileViewController: ViewController {
     private let collectionView: UICollectionView = {
@@ -19,16 +20,16 @@ class ProfileViewController: ViewController {
         return cv
     }()
     
-    private let viewModel: ProfileViewModel
+    private let store: ProfileStore
     private lazy var dataSource = makeDataSource()
     
-    init(viewModel: ProfileViewModel) {
-        self.viewModel = viewModel
+    init(store: ProfileStore) {
+        self.store = store
         super.init()
     }
     
     override func setup() {
-        title = viewModel.screenName
+        title = "Profile"
         view.backgroundColor = .lightGray
         setupLayout()
         setupCollectionView()
@@ -40,7 +41,7 @@ private extension ProfileViewController {
     func makeDataSource() -> ProfileDataSource {
         let registration = UICollectionView.CellRegistration<UICollectionViewListCell, ProfileModel> { cell, indexPath, model in
             var content = cell.defaultContentConfiguration()
-            content.text = model.title
+            content.text = model.name
             cell.contentConfiguration = content
         }
         
@@ -48,10 +49,10 @@ private extension ProfileViewController {
             cv.dequeueConfiguredReusableCell(using: registration, for: indexPath, item: model)
         }
         
-        ds.supplementaryViewProvider = { cv, kind, indexPath in
+        ds.supplementaryViewProvider = { [weak store] cv, kind, indexPath in
             let header = cv.dequeueSupplementary(UICollectionViewListCell.self, ofKind: kind, for: indexPath)
             var content = header.defaultContentConfiguration()
-            content.text = ProfileSection.allCases[indexPath.section].title
+            content.text = store?.models[indexPath.section].name
             header.contentConfiguration = content
             return header
         }
@@ -61,11 +62,11 @@ private extension ProfileViewController {
     
     func applySnapshot() {
         var snapshot = ProfileSnapshot()
-        let sections = viewModel.models.map { $0.0 }
+        let sections = store.models
         snapshot.appendSections(sections)
         
-        for section in viewModel.models {
-            snapshot.appendItems(section.1, toSection: section.0)
+        for section in store.models {
+            snapshot.appendItems(section.profiles, toSection: section)
         }
         
         dataSource.apply(snapshot, animatingDifferences: false)
@@ -89,6 +90,7 @@ extension ProfileViewController: UICollectionViewDelegate {
     func collectionView(
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath) {
-        viewModel.select(atIndexPath: indexPath)
+        let option = store.models[indexPath.section].profiles[indexPath.item]
+        store.selectOption(option)
     }
 }

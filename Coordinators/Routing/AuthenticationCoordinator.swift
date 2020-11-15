@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import Store
 
 protocol AuthenticationCoordinatorDelegate: class {
     func didAuthenticate(_ coordinator: Coordinator)
@@ -26,8 +27,8 @@ class AuthenticationCoordinator: Coordinator {
 
 private extension AuthenticationCoordinator {
     func showLogin() {
-        let viewModel = LoginViewModel(delegate: self)
-        let vc = LoginViewController(viewModel: viewModel)
+        let store = LoginStore(delegate: self)
+        let vc = LoginViewController(store: store)
         navigationController.show(vc, sender: self)
     }
     
@@ -37,8 +38,8 @@ private extension AuthenticationCoordinator {
     }
     
     func showSignup() {
-        let vm = SignupViewModel(delegate: self)
-        let vc = SignupViewController(viewModel: vm)
+        let store = SignupStore(delegate: self)
+        let vc = SignupViewController(store: store)
         navigationController.show(vc, sender: self)
     }
 }

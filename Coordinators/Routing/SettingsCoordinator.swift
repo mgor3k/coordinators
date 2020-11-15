@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import Store
 
 class SettingsCoordinator: Coordinator {
     private let navigationController: NavigationController
@@ -13,8 +14,8 @@ class SettingsCoordinator: Coordinator {
     }
     
     func start() {
-        let vm = SettingsViewModel(delegate: self)
-        let vc = SettingsViewController(viewModel: vm)
+        let store = SettingsStore(delegate: self)
+        let vc = SettingsViewController(store: store)
         navigationController.viewControllers = [vc]
     }
 }

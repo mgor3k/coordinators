@@ -5,6 +5,7 @@
 import UIKit
 import SnapKit
 import Combine
+import Store
 
 class LoginViewController: ViewController {
     private let username = TextField(placeholder: "Username")
@@ -16,18 +17,18 @@ class LoginViewController: ViewController {
     
     private var stack: UIStackView!
     
-    private let viewModel: LoginViewModel
+    private let store: LoginStore
     private var subscriptions: Set<AnyCancellable> = []
     
     private var isKeyboardShowed = false
     
-    init(viewModel: LoginViewModel) {
-        self.viewModel = viewModel
+    init(store: LoginStore) {
+        self.store = store
         super.init()
     }
     
     override func setup() {
-        title = viewModel.screenName
+        title = "Login"
         view.backgroundColor = Colors.authBackground
         setupLayout()
         setupActions()
@@ -62,15 +63,15 @@ private extension LoginViewController {
     func setupActions() {
         loginButton.addAction { [weak self] _ in
             self?.view.endEditing(true)
-            self?.viewModel.authenticate()
+            self?.store.authenticate()
         }
         
-        forgotButton.addAction { [weak viewModel] _ in
-            viewModel?.forgotPassword()
+        forgotButton.addAction { [weak store] _ in
+            store?.forgotPassword()
         }
         
-        signupButton.addAction { [weak viewModel] _ in
-            viewModel?.signup()
+        signupButton.addAction { [weak store] _ in
+            store?.signup()
         }
     }
     
@@ -80,18 +81,18 @@ private extension LoginViewController {
     }
     
     func setupViewModelBindings() {
-        viewModel.$isLoading
+        store.$isLoading
             .dropFirst()
             .receive(on: DispatchQueue.main)
             .assign(to: \.isLoading, on: loginButton)
             .store(in: &subscriptions)
         
-        viewModel.$isValid
+        store.$isValid
             .receive(on: DispatchQueue.main)
             .assign(to: \.isEnabled, on: loginButton)
             .store(in: &subscriptions)
         
-        viewModel.$error
+        store.$error
             .receive(on: DispatchQueue.main)
             .compactMap { $0 }
             .sink { [weak self] error in
@@ -100,11 +101,11 @@ private extension LoginViewController {
             .store(in: &subscriptions)
         
         username.textPublisher
-            .assign(to: \.username, on: viewModel)
+            .assign(to: \.username, on: store)
             .store(in: &subscriptions)
         
         password.textPublisher
-            .assign(to: \.password, on: viewModel)
+            .assign(to: \.password, on: store)
             .store(in: &subscriptions)
     }
     

@@ -4,6 +4,7 @@
 
 import UIKit
 import Combine
+import Store
 
 class SignupViewController: ViewController {
     private let nameTextField = TextField(placeholder: "Name")
@@ -12,17 +13,17 @@ class SignupViewController: ViewController {
     
     private let signupButton = LoadableRoundedButton("Signup")
     
-    private let viewModel: SignupViewModel
+    private let store: SignupStore
     private var subscriptions: Set<AnyCancellable> = []
     
-    init(viewModel: SignupViewModel) {
-        self.viewModel = viewModel
+    init(store: SignupStore) {
+        self.store = store
         super.init()
     }
     
     override func setup() {
         view.backgroundColor = Colors.authBackground
-        title = viewModel.screenName
+        title = "Hello...!"
         
         setupLayout()
         setupActions()
@@ -49,33 +50,33 @@ private extension SignupViewController {
     
     func setupActions() {
         signupButton.addAction { [weak self] _ in
-            self?.viewModel.signup()
+            self?.store.signup()
             self?.view.endEditing(true)
         }
     }
     
     func setupBindings() {
-        viewModel.$isLoading
+        store.$isLoading
             .dropFirst()
             .receive(on: DispatchQueue.main)
             .assign(to: \.isLoading, on: signupButton)
             .store(in: &subscriptions)
         
-        viewModel.$isValid
+        store.$isValid
             .receive(on: DispatchQueue.main)
             .assign(to: \.isEnabled, on: signupButton)
             .store(in: &subscriptions)
         
         nameTextField.textPublisher
-            .assign(to: \.name, on: viewModel)
+            .assign(to: \.name, on: store)
             .store(in: &subscriptions)
         
         lastNameTextField.textPublisher
-            .assign(to: \.lastName, on: viewModel)
+            .assign(to: \.lastName, on: store)
             .store(in: &subscriptions)
         
         emailTextField.textPublisher
-            .assign(to: \.email, on: viewModel)
+            .assign(to: \.email, on: store)
             .store(in: &subscriptions)
     }
 }

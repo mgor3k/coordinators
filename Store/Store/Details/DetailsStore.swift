@@ -4,25 +4,32 @@
 
 import Foundation
 
-protocol DetailsDelegate: class {
+public protocol DetailsDelegate: class {
     func didBuyModel(_ model: HomeModel)
 }
 
-class DetailsViewModel: ObservableObject {
+public class DetailsStore: ObservableObject {
+    @Published public var isLoading = false
+
     private let model: HomeModel
+    private let network: DetailsNetworking
     private weak var delegate: DetailsDelegate?
     
-    @Published var isLoading = false
-    
-    var screenName: String {
+    public var name: String {
         model.title
     }
     
-    init(model: HomeModel, delegate: DetailsDelegate) {
+    public init(
+        network: DetailsNetworking,
+        model: HomeModel,
+        delegate: DetailsDelegate) {
+        self.network = network
         self.model = model
         self.delegate = delegate
     }
-    
+}
+
+public extension DetailsStore {
     func buy() {
         isLoading = true
         
@@ -30,7 +37,7 @@ class DetailsViewModel: ObservableObject {
         
         DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
             self?.isLoading = true
-            MockService.shared.currentState = .bought(model)
+            self?.network.markAsBought(model)
             
             DispatchQueue.main.async {
                 self?.delegate?.didBuyModel(model)

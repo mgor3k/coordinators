@@ -5,29 +5,24 @@
 import Combine
 import Foundation
 
-protocol SignupDelegate: class {
-    func didSignup()
-}
-
-class SignupViewModel: ObservableObject {
-    @Published var name = ""
-    @Published var lastName = ""
-    @Published var email = ""
+public class SignupStore: ObservableObject {
+    @Published public var name = ""
+    @Published public var lastName = ""
+    @Published public var email = ""
     
-    @Published var isLoading = false
-    @Published var isValid = false
-    
-    var screenName = "Hello...!"
+    @Published public var isLoading = false
+    @Published public var isValid = false
     
     private var subscriptions: Set<AnyCancellable> = []
     private weak var delegate: SignupDelegate?
     
-    init(delegate: SignupDelegate) {
+    // TODO: Pass networking
+    public init(delegate: SignupDelegate) {
         self.delegate = delegate
         setupBindings()
     }
     
-    func signup() {
+    public func signup() {
         isLoading = true
         
         DispatchQueue.global().asyncAfter(deadline: .now() + 1) { [weak self] in
@@ -39,7 +34,7 @@ class SignupViewModel: ObservableObject {
     }
 }
 
-private extension SignupViewModel {
+private extension SignupStore {
     func setupBindings() {
         Publishers.CombineLatest3($name, $lastName, $email)
             .map { !($0.0.isEmpty || $0.1.isEmpty || $0.2.isEmpty) }
