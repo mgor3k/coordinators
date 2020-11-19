@@ -67,11 +67,11 @@ private extension LoginViewController {
         }
         
         forgotButton.addAction { [weak store] _ in
-            store?.forgotPassword()
+            store?.navigate(to: .remindPassword)
         }
         
         signupButton.addAction { [weak store] _ in
-            store?.signup()
+            store?.navigate(to: .signup)
         }
     }
     

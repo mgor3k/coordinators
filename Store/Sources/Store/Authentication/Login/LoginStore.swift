@@ -12,6 +12,7 @@ public class LoginStore: ObservableObject {
     @Published public var isLoading = false
     @Published public var isValid = false
     
+    // TODO: Fix
     @Published public var error: Error?
     
     private weak var delegate: LoginDelegate?
@@ -30,7 +31,7 @@ public class LoginStore: ObservableObject {
             self?.isLoading = false
             DispatchQueue.main.async {
                 if self?.username.lowercased() == "error" {
-                    self?.error = Error.invalidLogin
+                    self?.error = Login.Error.invalidLogin
                 } else {
                     self?.delegate?.didLogin()
                 }
@@ -38,12 +39,8 @@ public class LoginStore: ObservableObject {
         }
     }
     
-    public func forgotPassword() {
-        delegate?.willRememberPassword()
-    }
-    
-    public func signup() {
-        delegate?.willSignup()
+    public func navigate(to destination: Login.Navigation) {
+        delegate?.navigate(to: destination)
     }
 }
 

@@ -49,12 +49,13 @@ extension AuthenticationCoordinator: LoginDelegate {
         delegate?.didAuthenticate(self)
     }
     
-    func willRememberPassword() {
-        showForgotPassword()
-    }
-    
-    func willSignup() {
-        showSignup()
+    func navigate(to destination: Login.Navigation) {
+        switch destination {
+        case .remindPassword:
+            showForgotPassword()
+        case .signup:
+            showSignup()
+        }
     }
 }
 

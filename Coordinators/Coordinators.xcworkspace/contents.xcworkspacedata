@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../Store/Store.xcodeproj">
+      location = "group:../Store">
    </FileRef>
    <FileRef
       location = "container:Coordinators.xcodeproj">

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BF062F64254CB330003E1662 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF062F63254CB330003E1662 /* Coordinator.swift */; };
 		BF08E7B525571ACC006F7700 /* HomeSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF08E7B425571ACC006F7700 /* HomeSuccessViewController.swift */; };
+		BF0E21752567326800948CE5 /* Store in Frameworks */ = {isa = PBXBuildFile; productRef = BF0E21742567326800948CE5 /* Store */; };
 		BF1FBB19254C96E900FD3BD0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BF1FBB18254C96E900FD3BD0 /* SnapKit */; };
 		BF3AA691254EFD84006ADE3A /* Trailing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA690254EFD84006ADE3A /* Trailing.swift */; };
 		BF3AA694254EFED1006ADE3A /* PasswordReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA693254EFED1006ADE3A /* PasswordReminderViewController.swift */; };
@@ -56,23 +57,7 @@
 		BFE7A4F1254EF08300E64EA5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */; };
 		BFE93D32256036BD00CB4351 /* StackBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE93D31256036BD00CB4351 /* StackBuilder.swift */; };
 		BFF4D7B42555F373009C93CC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF4D7B32555F373009C93CC /* DetailsViewController.swift */; };
-		BFF807F12561A63D0030D7BD /* Store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF807F02561A63D0030D7BD /* Store.framework */; };
-		BFF807F22561A63D0030D7BD /* Store.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFF807F02561A63D0030D7BD /* Store.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		BFF807F32561A63D0030D7BD /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				BFF807F22561A63D0030D7BD /* Store.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BF062F63254CB330003E1662 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -124,7 +109,6 @@
 		BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BFE93D31256036BD00CB4351 /* StackBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackBuilder.swift; sourceTree = "<group>"; };
 		BFF4D7B32555F373009C93CC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
-		BFF807F02561A63D0030D7BD /* Store.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Store.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,9 +116,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF0E21752567326800948CE5 /* Store in Frameworks */,
 				BF1FBB19254C96E900FD3BD0 /* SnapKit in Frameworks */,
 				BFD46DA42559CCC300DD871E /* Lottie in Frameworks */,
-				BFF807F12561A63D0030D7BD /* Store.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +138,13 @@
 				BF3AA6AF2551E590006ADE3A /* CollectionViewCell.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		BF0E216E2567315B00948CE5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BF3AA69A254F04A6006ADE3A /* TextFields */ = {
@@ -291,7 +282,7 @@
 			children = (
 				BFBD1D80254C88FA00E6B750 /* Coordinators */,
 				BFBD1D7F254C88FA00E6B750 /* Products */,
-				BFF807EF2561A63D0030D7BD /* Frameworks */,
+				BF0E216E2567315B00948CE5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -346,14 +337,6 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
-		BFF807EF2561A63D0030D7BD /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BFF807F02561A63D0030D7BD /* Store.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		BFF8080C2561AB0E0030D7BD /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,7 +358,6 @@
 				BFBD1D7A254C88FA00E6B750 /* Sources */,
 				BFBD1D7B254C88FA00E6B750 /* Frameworks */,
 				BFBD1D7C254C88FA00E6B750 /* Resources */,
-				BFF807F32561A63D0030D7BD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -385,6 +367,7 @@
 			packageProductDependencies = (
 				BF1FBB18254C96E900FD3BD0 /* SnapKit */,
 				BFD46DA32559CCC300DD871E /* Lottie */,
+				BF0E21742567326800948CE5 /* Store */,
 			);
 			productName = Coordinators;
 			productReference = BFBD1D7E254C88FA00E6B750 /* Coordinators.app */;
@@ -700,6 +683,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BF0E21742567326800948CE5 /* Store */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Store;
+		};
 		BF1FBB18254C96E900FD3BD0 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BF1FBB17254C96E900FD3BD0 /* XCRemoteSwiftPackageReference "SnapKit" */;
