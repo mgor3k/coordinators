@@ -6,12 +6,14 @@ import UIKit
 
 class AppCoordinator: Coordinator {
     private let window: UIWindow
+    private let factory: ViewFactory
     private var isLoggedIn = false
     
     var children: [Coordinator] = []
     
-    init(window: UIWindow) {
+    init(window: UIWindow, factory: ViewFactory) {
         self.window = window
+        self.factory = factory
     }
     
     func start() {
@@ -24,6 +26,7 @@ private extension AppCoordinator {
         let nav = NavigationController()
         let coordinator = AuthenticationCoordinator(
             navigationController: nav,
+            factory: factory,
             delegate: self
         )
         coordinator.start()
@@ -32,19 +35,32 @@ private extension AppCoordinator {
     }
     
     func showMain() {
-        let factory = Factory()
-        let tabBar = TabBarController()
+        let homeNav = NavigationController(
+            title: "Home",
+            imageName: "house"
+        )
         
-        let home = factory.makeHome()
-        let Profile = factory.makeProfile()
+        let profileNav = NavigationController(
+            title: "Profile",
+            imageName: "person.circle"
+        )
         
-        [home, Profile].forEach {
-            attach($0.coordinator)
-            $0.coordinator.start()
-            tabBar.addVC($0.navigation)
+        let home: Coordinator = HomeCoordinator(
+            navigationController: homeNav
+        )
+        
+        let profile: Coordinator = ProfileCoordinator(
+            navigationController: profileNav
+        )
+                
+        [home, profile].forEach {
+            attach($0)
+            $0.start()
         }
         
-        window.replaceRoot(tabBar)
+        window.replaceRoot(
+            TabBarController([homeNav, profileNav])
+        )
     }
 }
 

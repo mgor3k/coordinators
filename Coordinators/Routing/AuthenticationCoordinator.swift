@@ -11,12 +11,17 @@ protocol AuthenticationCoordinatorDelegate: class {
 
 class AuthenticationCoordinator: Coordinator {
     private let navigationController: UINavigationController
+    private let factory: ViewFactory
     private weak var delegate: AuthenticationCoordinatorDelegate?
 
     var children: [Coordinator] = []
     
-    init(navigationController: UINavigationController, delegate: AuthenticationCoordinatorDelegate) {
+    init(
+        navigationController: UINavigationController,
+        factory: ViewFactory,
+        delegate: AuthenticationCoordinatorDelegate) {
         self.navigationController = navigationController
+        self.factory = factory
         self.delegate = delegate
     }
     
@@ -28,18 +33,18 @@ class AuthenticationCoordinator: Coordinator {
 private extension AuthenticationCoordinator {
     func showLogin() {
         let store = LoginStore(network: MockService.shared, delegate: self)
-        let vc = LoginViewController(store: store)
+        let vc = factory.makeLogin(store: store)
         navigationController.show(vc, sender: self)
     }
     
     func showForgotPassword() {
-        let vc = PasswordReminderViewController()
+        let vc = factory.makeRemindPassword()
         navigationController.show(vc, sender: self)
     }
     
     func showSignup() {
         let store = SignupStore(network: MockService.shared, delegate: self)
-        let vc = SignupViewController(store: store)
+        let vc = factory.makeSignup(store: store)
         navigationController.show(vc, sender: self)
     }
 }
@@ -61,7 +66,7 @@ extension AuthenticationCoordinator: LoginDelegate {
 
 extension AuthenticationCoordinator: SignupDelegate {
     func didSignup(with token: String) {
-        let vc = AuthSuccessViewController()
+        let vc = factory.makeAuthSuccess()
         vc.onFinished = { [weak self] in
             self?.finish()
         }

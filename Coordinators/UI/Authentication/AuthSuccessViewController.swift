@@ -5,7 +5,7 @@
 import UIKit
 import Lottie
 
-class AuthSuccessViewController: ViewController {
+class AuthSuccessViewController: ViewController, Finishable {
     private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white

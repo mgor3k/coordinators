@@ -5,20 +5,13 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-    init() {
+    init(_ viewControllers: [UIViewController]) {
         super.init(nibName: nil, bundle: nil)
+        setViewControllers(viewControllers, animated: false)
     }
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func addVC(_ vc: UIViewController) {
-        if viewControllers != nil {
-            viewControllers?.append(vc)
-        } else {
-            viewControllers = [vc]
-        }
     }
 }

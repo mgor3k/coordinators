@@ -10,6 +10,7 @@
 		BF062F64254CB330003E1662 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF062F63254CB330003E1662 /* Coordinator.swift */; };
 		BF08E7B525571ACC006F7700 /* HomeSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF08E7B425571ACC006F7700 /* HomeSuccessViewController.swift */; };
 		BF0E21C22567BB2600948CE5 /* Store in Frameworks */ = {isa = PBXBuildFile; productRef = BF0E21C12567BB2600948CE5 /* Store */; };
+		BF0E21C62568039D00948CE5 /* NavigationController+Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0E21C52568039D00948CE5 /* NavigationController+Tab.swift */; };
 		BF1FBB19254C96E900FD3BD0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BF1FBB18254C96E900FD3BD0 /* SnapKit */; };
 		BF3AA691254EFD84006ADE3A /* Trailing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA690254EFD84006ADE3A /* Trailing.swift */; };
 		BF3AA694254EFED1006ADE3A /* PasswordReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA693254EFED1006ADE3A /* PasswordReminderViewController.swift */; };
@@ -22,6 +23,8 @@
 		BF3AA6BB2551E6CF006ADE3A /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA6BA2551E6CF006ADE3A /* UICollectionView+.swift */; };
 		BF52695B254CA76800638F23 /* StackItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52695A254CA76800638F23 /* StackItem.swift */; };
 		BF52695E254CA78100638F23 /* Centered.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52695D254CA78100638F23 /* Centered.swift */; };
+		BF5A17F82568043B0047E73D /* UIKitFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A17F72568043B0047E73D /* UIKitFactory.swift */; };
+		BF5A17FB2568055D0047E73D /* Finishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A17FA2568055D0047E73D /* Finishable.swift */; };
 		BF5FA6B5254C99520093BBBD /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FA6B4254C99520093BBBD /* TextField.swift */; };
 		BF5FA6BA254C9A920093BBBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FA6B9254C9A920093BBBD /* ViewController.swift */; };
 		BF5FA6BD254C9B770093BBBD /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FA6BC254C9B770093BBBD /* NavigationController.swift */; };
@@ -31,7 +34,7 @@
 		BF70263C25572A550040221A /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF70263B25572A550040221A /* MockService.swift */; };
 		BF70264525573E810040221A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF70264425573E810040221A /* SettingsViewController.swift */; };
 		BF70264925573FAA0040221A /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF70264825573FAA0040221A /* SettingsCoordinator.swift */; };
-		BF70264F255748E10040221A /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF70264E255748E10040221A /* Factory.swift */; };
+		BF70264F255748E10040221A /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF70264E255748E10040221A /* ViewFactory.swift */; };
 		BF9E4A2F25602FA500BB9059 /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9E4A2D25602FA500BB9059 /* HomeSection.swift */; };
 		BFB7FC65254EF75E00DE13CB /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7FC64254EF75E00DE13CB /* UIWindow+.swift */; };
 		BFB7FC6D254EF99D00DE13CB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7FC6C254EF99D00DE13CB /* ProfileViewController.swift */; };
@@ -62,6 +65,7 @@
 /* Begin PBXFileReference section */
 		BF062F63254CB330003E1662 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BF08E7B425571ACC006F7700 /* HomeSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSuccessViewController.swift; sourceTree = "<group>"; };
+		BF0E21C52568039D00948CE5 /* NavigationController+Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationController+Tab.swift"; sourceTree = "<group>"; };
 		BF3AA690254EFD84006ADE3A /* Trailing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trailing.swift; sourceTree = "<group>"; };
 		BF3AA693254EFED1006ADE3A /* PasswordReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordReminderViewController.swift; sourceTree = "<group>"; };
 		BF3AA697254EFF66006ADE3A /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 		BF3AA6BA2551E6CF006ADE3A /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		BF52695A254CA76800638F23 /* StackItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackItem.swift; sourceTree = "<group>"; };
 		BF52695D254CA78100638F23 /* Centered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Centered.swift; sourceTree = "<group>"; };
+		BF5A17F72568043B0047E73D /* UIKitFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitFactory.swift; sourceTree = "<group>"; };
+		BF5A17FA2568055D0047E73D /* Finishable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finishable.swift; sourceTree = "<group>"; };
 		BF5FA6B4254C99520093BBBD /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		BF5FA6B9254C9A920093BBBD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BF5FA6BC254C9B770093BBBD /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -82,7 +88,7 @@
 		BF70263B25572A550040221A /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
 		BF70264425573E810040221A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BF70264825573FAA0040221A /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
-		BF70264E255748E10040221A /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		BF70264E255748E10040221A /* ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
 		BF9E4A2D25602FA500BB9059 /* HomeSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSection.swift; sourceTree = "<group>"; };
 		BFB7FC64254EF75E00DE13CB /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
 		BFB7FC6C254EF99D00DE13CB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -188,7 +194,9 @@
 		BF702651255749AD0040221A /* Factory */ = {
 			isa = PBXGroup;
 			children = (
-				BF70264E255748E10040221A /* Factory.swift */,
+				BF5A17FA2568055D0047E73D /* Finishable.swift */,
+				BF70264E255748E10040221A /* ViewFactory.swift */,
+				BF5A17F72568043B0047E73D /* UIKitFactory.swift */,
 			);
 			path = Factory;
 			sourceTree = "<group>";
@@ -258,6 +266,7 @@
 		BFB7FC63254EF75300DE13CB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				BF0E21C52568039D00948CE5 /* NavigationController+Tab.swift */,
 				BFB7FC64254EF75E00DE13CB /* UIWindow+.swift */,
 				BF3AA6BA2551E6CF006ADE3A /* UICollectionView+.swift */,
 				BFD46D922558259B00DD871E /* UITextField+.swift */,
@@ -439,8 +448,10 @@
 				BF70263C25572A550040221A /* MockService.swift in Sources */,
 				BFB7FC70254EF9B900DE13CB /* ProfileCoordinator.swift in Sources */,
 				BFE7A4F1254EF08300E64EA5 /* TabBarController.swift in Sources */,
+				BF0E21C62568039D00948CE5 /* NavigationController+Tab.swift in Sources */,
 				BFD46D932558259B00DD871E /* UITextField+.swift in Sources */,
-				BF70264F255748E10040221A /* Factory.swift in Sources */,
+				BF70264F255748E10040221A /* ViewFactory.swift in Sources */,
+				BF5A17F82568043B0047E73D /* UIKitFactory.swift in Sources */,
 				BF3AA6A82551E0BD006ADE3A /* HomeCompositionalLayout.swift in Sources */,
 				BF5FA6BA254C9A920093BBBD /* ViewController.swift in Sources */,
 				BFD46D9B2558629600DD871E /* UIResponder+.swift in Sources */,
@@ -465,6 +476,7 @@
 				BFB7FC65254EF75E00DE13CB /* UIWindow+.swift in Sources */,
 				BF3AA691254EFD84006ADE3A /* Trailing.swift in Sources */,
 				BF3AA6B02551E590006ADE3A /* CollectionViewCell.swift in Sources */,
+				BF5A17FB2568055D0047E73D /* Finishable.swift in Sources */,
 				BFBD1D84254C88FA00E6B750 /* SceneDelegate.swift in Sources */,
 				BF3AA698254EFF66006ADE3A /* SignupViewController.swift in Sources */,
 				BF70264925573FAA0040221A /* SettingsCoordinator.swift in Sources */,
