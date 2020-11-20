@@ -7,9 +7,9 @@ import Combine
 import Store
 
 class SignupViewController: ViewController {
-    private let nameTextField = TextField(placeholder: "Name")
-    private let lastNameTextField = TextField(placeholder: "Last Name")
-    private let emailTextField = TextField(placeholder: "Email")
+    private let username = TextField(placeholder: "Username")
+    private let email = TextField(placeholder: "Email")
+    private let password = SecureTextField(placeholder: "Password")
     
     private let signupButton = LoadableRoundedButton("Signup")
     
@@ -34,9 +34,9 @@ class SignupViewController: ViewController {
 private extension SignupViewController {
     func setupLayout() {
         let stack = VStack(spacing: 16) {
-            nameTextField
-            lastNameTextField
-            emailTextField
+            username
+            email
+            password
             Spaced(Centered(signupButton), 32)
         }
         
@@ -67,15 +67,15 @@ private extension SignupViewController {
             .assign(to: \.isEnabled, on: signupButton)
             .store(in: &subscriptions)
         
-        nameTextField.textPublisher
-            .assign(to: \.name, on: store)
+        username.textPublisher
+            .assign(to: \.username, on: store)
             .store(in: &subscriptions)
         
-        lastNameTextField.textPublisher
-            .assign(to: \.lastName, on: store)
+        password.textPublisher
+            .assign(to: \.password, on: store)
             .store(in: &subscriptions)
         
-        emailTextField.textPublisher
+        email.textPublisher
             .assign(to: \.email, on: store)
             .store(in: &subscriptions)
     }

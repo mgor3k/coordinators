@@ -58,7 +58,7 @@ class MockService: HomeStoreNetworking, DetailsNetworking {
 
 extension MockService: LoginNetworking {
     func authenticate(username: String, password: String) -> AnyPublisher<String, Login.Error> {
-        Future<String, Login.Error> { promise in
+        Future { promise in
             DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
                 DispatchQueue.main.async {
                     if username.lowercased() == "error" {
@@ -67,6 +67,17 @@ extension MockService: LoginNetworking {
                         promise(.success("12345678"))
                     }
                 }
+            }
+        }
+        .eraseToAnyPublisher()
+    }
+}
+
+extension MockService: SignupNetworking {
+    func signup(username: String, email: String, password: String) -> AnyPublisher<String, Signup.Error> {
+        Future { promise in
+            DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
+                promise(.success("123212"))
             }
         }
         .eraseToAnyPublisher()

@@ -8,5 +8,8 @@ class SecureTextField: TextField {
     override init(placeholder: String) {
         super.init(placeholder: placeholder)
         isSecureTextEntry = true
+        
+        // Disables autofill password
+        textContentType = .username
     }
 }

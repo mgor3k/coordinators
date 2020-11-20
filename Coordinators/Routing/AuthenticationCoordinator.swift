@@ -38,7 +38,7 @@ private extension AuthenticationCoordinator {
     }
     
     func showSignup() {
-        let store = SignupStore(delegate: self)
+        let store = SignupStore(network: MockService.shared, delegate: self)
         let vc = SignupViewController(store: store)
         navigationController.show(vc, sender: self)
     }
@@ -60,7 +60,7 @@ extension AuthenticationCoordinator: LoginDelegate {
 }
 
 extension AuthenticationCoordinator: SignupDelegate {
-    func didSignup() {
+    func didSignup(with token: String) {
         let vc = AuthSuccessViewController()
         vc.onFinished = { [weak self] in
             self?.finish()

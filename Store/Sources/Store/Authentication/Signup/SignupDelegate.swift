@@ -5,5 +5,6 @@
 import Foundation
 
 public protocol SignupDelegate: class {
-    func didSignup()
+    /// Called when successfully signed
+    func didSignup(with token: String)
 }
