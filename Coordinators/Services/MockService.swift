@@ -52,10 +52,13 @@ class MockService: HomeStoreNetworking, DetailsNetworking {
     }
     
     func markAsBought(_ model: HomeModel) -> AnyPublisher<Void, Error> {
-        currentState = .bought(model)
-        return Just(())
-            .setFailureType(to: Error.self)
-            .eraseToAnyPublisher()
+        Future<Void, Error> { [unowned self] promise in
+            DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
+                self.currentState = .bought(model)
+                promise(.success(()))
+            }
+        }
+        .eraseToAnyPublisher()
     }
 }
 

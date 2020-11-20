@@ -7,13 +7,7 @@ import Combine
 import Store
 
 class DetailsViewController: ViewController {
-    private lazy var button: LoadableRoundedButton = {
-        let btn = LoadableRoundedButton("Buy")
-        btn.addAction { [weak store] _ in
-            store?.buy()
-        }
-        return btn
-    }()
+    private let button = LoadableRoundedButton("Buy")
     
     private let store: DetailsStore
     private var subscriptions: Set<AnyCancellable> = []
@@ -28,6 +22,7 @@ class DetailsViewController: ViewController {
         title = store.name
         
         setupLayout()
+        setupActions()
         setupBindings()
     }
 }
@@ -45,6 +40,25 @@ private extension DetailsViewController {
             .dropFirst()
             .receive(on: DispatchQueue.main)
             .assign(to: \.isLoading, on: button)
+            .store(in: &subscriptions)
+    }
+    
+    func setupActions() {
+        button.addAction { [weak self] _ in
+            self?.buy()
+        }
+    }
+    
+    func buy() {
+        store.buy()
+            .ignoreOutput()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { [weak self] in
+                // Fix button returning from loading when presenting another view - looks ugly
+                if case .finished = $0 {
+                    self?.button.isHidden = true
+                }
+            }, receiveValue: { _ in })
             .store(in: &subscriptions)
     }
 }

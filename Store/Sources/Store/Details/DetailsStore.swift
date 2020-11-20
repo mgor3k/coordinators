@@ -40,7 +40,7 @@ public class DetailsStore: ObservableObject {
 public extension DetailsStore {
     /// Buy the item
     /// Notify delegate when bought, error otherwise
-    func buy() {
+    func buy() -> AnyPublisher<Void, Error> {
         isLoading = true
         
         let publisher = network
@@ -69,5 +69,7 @@ public extension DetailsStore {
                 },
                 receiveValue: { _ in })
             .store(in: &subscriptions)
+        
+        return publisher
     }
 }
