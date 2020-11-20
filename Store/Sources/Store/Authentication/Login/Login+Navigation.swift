@@ -3,6 +3,7 @@
 //
 
 public extension Login {
+    /// Login navigation
     enum Navigation {
         case remindPassword
         case signup

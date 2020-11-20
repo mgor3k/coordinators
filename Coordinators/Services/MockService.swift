@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import Combine
 import Store
 
 // Big fat mock with made up stuff
@@ -52,5 +53,22 @@ class MockService: HomeStoreNetworking, DetailsNetworking {
     
     func markAsBought(_ model: HomeModel) {
         currentState = .bought(model)
+    }
+}
+
+extension MockService: LoginNetworking {
+    func authenticate(username: String, password: String) -> AnyPublisher<String, Login.Error> {
+        Future<String, Login.Error> { promise in
+            DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+                DispatchQueue.main.async {
+                    if username.lowercased() == "error" {
+                        promise(.failure(.invalidUsername))
+                    } else {
+                        promise(.success("12345678"))
+                    }
+                }
+            }
+        }
+        .eraseToAnyPublisher()
     }
 }

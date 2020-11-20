@@ -12,14 +12,14 @@ public class LoginStore: ObservableObject {
     @Published public var isLoading = false
     @Published public var isValid = false
     
-    // TODO: Fix
     @Published public var error: Error?
     
+    private let network: LoginNetworking
     private weak var delegate: LoginDelegate?
     private var subscriptions: Set<AnyCancellable> = []
     
-    // TODO: Pass networking
-    public init(delegate: LoginDelegate) {
+    public init(network: LoginNetworking, delegate: LoginDelegate) {
+        self.network = network
         self.delegate = delegate
         setupBindings()
     }
@@ -27,16 +27,29 @@ public class LoginStore: ObservableObject {
     public func authenticate() {
         isLoading = true
         
-        DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
-            self?.isLoading = false
-            DispatchQueue.main.async {
-                if self?.username.lowercased() == "error" {
-                    self?.error = Login.Error.invalidLogin
+        let publisher = network
+            .authenticate(username: username, password: password)
+            .share()
+        
+        publisher
+            .ignoreOutput()
+            .sink(
+                receiveCompletion: { [weak self] _ in self?.isLoading = false },
+                receiveValue: { _ in })
+            .store(in: &subscriptions)
+        
+        publisher
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { [weak self] status in
+                if case let .failure(error) = status {
+                    self?.error = error
                 } else {
-                    self?.delegate?.didLogin()
+                    self?.error = nil
                 }
-            }
-        }
+            }, receiveValue: { [weak delegate] token in
+                delegate?.didAuthenticate(with: token)
+            })
+            .store(in: &subscriptions)
     }
     
     public func navigate(to destination: Login.Navigation) {

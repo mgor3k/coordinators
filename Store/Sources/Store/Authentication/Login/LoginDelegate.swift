@@ -3,6 +3,9 @@
 //
 
 public protocol LoginDelegate: class {
-    func didLogin()
+    /// Called when authenticated
+    func didAuthenticate(with token: String)
+    
+    /// Move to other authentication related screen
     func navigate(to destination: Login.Navigation)
 }

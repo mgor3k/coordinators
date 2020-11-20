@@ -27,7 +27,7 @@ class AuthenticationCoordinator: Coordinator {
 
 private extension AuthenticationCoordinator {
     func showLogin() {
-        let store = LoginStore(delegate: self)
+        let store = LoginStore(network: MockService.shared, delegate: self)
         let vc = LoginViewController(store: store)
         navigationController.show(vc, sender: self)
     }
@@ -45,7 +45,7 @@ private extension AuthenticationCoordinator {
 }
 
 extension AuthenticationCoordinator: LoginDelegate {
-    func didLogin() {
+    func didAuthenticate(with token: String) {
         delegate?.didAuthenticate(self)
     }
     

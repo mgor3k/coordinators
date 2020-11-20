@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		BF062F64254CB330003E1662 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF062F63254CB330003E1662 /* Coordinator.swift */; };
 		BF08E7B525571ACC006F7700 /* HomeSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF08E7B425571ACC006F7700 /* HomeSuccessViewController.swift */; };
-		BF0E21752567326800948CE5 /* Store in Frameworks */ = {isa = PBXBuildFile; productRef = BF0E21742567326800948CE5 /* Store */; };
+		BF0E21C22567BB2600948CE5 /* Store in Frameworks */ = {isa = PBXBuildFile; productRef = BF0E21C12567BB2600948CE5 /* Store */; };
 		BF1FBB19254C96E900FD3BD0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BF1FBB18254C96E900FD3BD0 /* SnapKit */; };
 		BF3AA691254EFD84006ADE3A /* Trailing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA690254EFD84006ADE3A /* Trailing.swift */; };
 		BF3AA694254EFED1006ADE3A /* PasswordReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA693254EFED1006ADE3A /* PasswordReminderViewController.swift */; };
@@ -116,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF0E21752567326800948CE5 /* Store in Frameworks */,
+				BF0E21C22567BB2600948CE5 /* Store in Frameworks */,
 				BF1FBB19254C96E900FD3BD0 /* SnapKit in Frameworks */,
 				BFD46DA42559CCC300DD871E /* Lottie in Frameworks */,
 			);
@@ -367,7 +367,7 @@
 			packageProductDependencies = (
 				BF1FBB18254C96E900FD3BD0 /* SnapKit */,
 				BFD46DA32559CCC300DD871E /* Lottie */,
-				BF0E21742567326800948CE5 /* Store */,
+				BF0E21C12567BB2600948CE5 /* Store */,
 			);
 			productName = Coordinators;
 			productReference = BFBD1D7E254C88FA00E6B750 /* Coordinators.app */;
@@ -683,7 +683,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BF0E21742567326800948CE5 /* Store */ = {
+		BF0E21C12567BB2600948CE5 /* Store */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Store;
 		};
