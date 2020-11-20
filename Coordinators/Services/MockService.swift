@@ -51,8 +51,11 @@ class MockService: HomeStoreNetworking, DetailsNetworking {
         }
     }
     
-    func markAsBought(_ model: HomeModel) {
+    func markAsBought(_ model: HomeModel) -> AnyPublisher<Void, Error> {
         currentState = .bought(model)
+        return Just(())
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
     }
 }
 

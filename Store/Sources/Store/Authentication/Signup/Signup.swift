@@ -4,4 +4,3 @@
 
 /// Signup namespace
 public enum Signup { }
-

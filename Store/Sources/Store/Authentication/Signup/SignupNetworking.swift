@@ -11,5 +11,9 @@ public protocol SignupNetworking {
     ///   - username: user's username
     ///   - email: user's email address
     ///   - password: user's password
-    func signup(username: String, email: String, password: String) -> AnyPublisher<String, Signup.Error>
+    func signup(
+        username: String,
+        email: String,
+        password: String)
+    -> AnyPublisher<String, Signup.Error>
 }

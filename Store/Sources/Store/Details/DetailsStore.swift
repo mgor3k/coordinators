@@ -3,22 +3,30 @@
 //
 
 import Foundation
-
-public protocol DetailsDelegate: class {
-    func didBuyModel(_ model: HomeModel)
-}
+import Combine
 
 public class DetailsStore: ObservableObject {
+    /// Indicates if the request is being processed
     @Published public var isLoading = false
+    
+    /// Use to indicate if an error occured
+    @Published public var error: Error?
+    
+    /// Model's name. Can be used as a title.
+    public var name: String {
+        model.title
+    }
 
     private let model: HomeModel
     private let network: DetailsNetworking
     private weak var delegate: DetailsDelegate?
+    private var subscriptions: Set<AnyCancellable> = []
     
-    public var name: String {
-        model.title
-    }
-    
+    /// Initializer
+    /// - Parameters:
+    ///   - network: Pass your network service
+    ///   - model: Pass the model for the details to be showed
+    ///   - delegate: Pass your delegate to be nofified when the flow ends
     public init(
         network: DetailsNetworking,
         model: HomeModel,
@@ -30,18 +38,36 @@ public class DetailsStore: ObservableObject {
 }
 
 public extension DetailsStore {
+    /// Buy the item
+    /// Notify delegate when bought, error otherwise
     func buy() {
         isLoading = true
         
-        let model = self.model
+        let publisher = network
+            .markAsBought(model)
         
-        DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
-            self?.isLoading = true
-            self?.network.markAsBought(model)
-            
-            DispatchQueue.main.async {
-                self?.delegate?.didBuyModel(model)
-            }
-        }
+        publisher
+            .ignoreOutput()
+            .sink(
+                receiveCompletion: { [weak self] _ in self?.isLoading = false },
+                receiveValue: { _ in })
+            .store(in: &subscriptions)
+        
+        publisher
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { [weak self] status in
+                    guard let self = self else { return }
+                    switch status {
+                    case .finished:
+                        self.error = nil
+                        self.delegate?.didBuyModel(self.model)
+                    case .failure(let error):
+                        self.error = error
+                        break
+                    }
+                },
+                receiveValue: { _ in })
+            .store(in: &subscriptions)
     }
 }
