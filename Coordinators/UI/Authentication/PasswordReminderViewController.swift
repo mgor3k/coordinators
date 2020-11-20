@@ -4,6 +4,7 @@
 
 import UIKit
 
+// TODO: To be done in the future
 class PasswordReminderViewController: ViewController {
     override func setup() {
         view.backgroundColor = .cyan
