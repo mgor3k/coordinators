@@ -21,4 +21,24 @@ struct UIKitFactory: ViewFactory {
     func makeAuthSuccess() -> UIViewController & Finishable {
         AuthSuccessViewController()
     }
+    
+    func makeHome(store: HomeStore) -> UIViewController {
+        HomeViewController(store: store)
+    }
+    
+    func makeDetails(store: DetailsStore) -> UIViewController {
+        DetailsViewController(store: store)
+    }
+    
+    func makeBuySuccess(name: String) -> UIViewController {
+        HomeSuccessViewController(name: name)
+    }
+    
+    func makeSettings(store: SettingsStore) -> UIViewController {
+        SettingsViewController(store: store)
+    }
+    
+    func makeProfile(store: ProfileStore) -> UIViewController {
+        ProfileViewController(store: store)
+    }
 }

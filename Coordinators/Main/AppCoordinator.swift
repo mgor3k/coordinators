@@ -46,11 +46,13 @@ private extension AppCoordinator {
         )
         
         let home: Coordinator = HomeCoordinator(
-            navigationController: homeNav
+            navigationController: homeNav,
+            factory: factory
         )
         
         let profile: Coordinator = ProfileCoordinator(
-            navigationController: profileNav
+            navigationController: profileNav,
+            factory: factory
         )
                 
         [home, profile].forEach {

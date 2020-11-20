@@ -7,15 +7,19 @@ import Store
 
 class ProfileCoordinator: Coordinator {
     private let navigationController: NavigationController
+    private let factory: ProfileFactory
     var children: [Coordinator] = []
     
-    init(navigationController: NavigationController) {
+    init(
+        navigationController: NavigationController,
+        factory: ProfileFactory) {
         self.navigationController = navigationController
+        self.factory = factory
     }
     
     func start() {
         let store = ProfileStore(delegate: self)
-        let vc = ProfileViewController(store: store)
+        let vc = factory.makeProfile(store: store)
         navigationController.viewControllers = [vc]
     }
 }
@@ -25,6 +29,7 @@ extension ProfileCoordinator: ProfileDelegate {
         let nav = NavigationController()
         let coordinator = SettingsCoordinator(
             navigationController: nav,
+            factory: factory,
             delegate: self
         )
         coordinator.start()

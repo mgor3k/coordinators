@@ -11,12 +11,17 @@ protocol SettingsCoordinatorDelegate: class {
 
 class SettingsCoordinator: Coordinator {
     private let navigationController: NavigationController
+    private let factory: ProfileFactory
     private weak var delegate: SettingsCoordinatorDelegate?
     
     var children: [Coordinator] = []
     
-    init(navigationController: NavigationController, delegate: SettingsCoordinatorDelegate) {
+    init(
+        navigationController: NavigationController,
+        factory: ProfileFactory,
+        delegate: SettingsCoordinatorDelegate) {
         self.navigationController = navigationController
+        self.factory = factory
         self.delegate = delegate
         
         navigationController.onDismiss = { [weak self] in
@@ -26,7 +31,7 @@ class SettingsCoordinator: Coordinator {
     
     func start() {
         let store = SettingsStore(delegate: self)
-        let vc = SettingsViewController(store: store)
+        let vc = factory.makeSettings(store: store)
         navigationController.barColor = .black
         navigationController.viewControllers = [vc]
     }
@@ -34,8 +39,6 @@ class SettingsCoordinator: Coordinator {
 
 extension SettingsCoordinator: SettingsDelegate {
     func didSelectSettings(_ settings: Settings) {
-//        print(option.title)
-        
         navigationController.dismiss(animated: true)
         didClose()
     }

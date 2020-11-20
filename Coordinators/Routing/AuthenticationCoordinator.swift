@@ -11,14 +11,14 @@ protocol AuthenticationCoordinatorDelegate: class {
 
 class AuthenticationCoordinator: Coordinator {
     private let navigationController: UINavigationController
-    private let factory: ViewFactory
+    private let factory: AuthFactory
     private weak var delegate: AuthenticationCoordinatorDelegate?
 
     var children: [Coordinator] = []
     
     init(
         navigationController: UINavigationController,
-        factory: ViewFactory,
+        factory: AuthFactory,
         delegate: AuthenticationCoordinatorDelegate) {
         self.navigationController = navigationController
         self.factory = factory
