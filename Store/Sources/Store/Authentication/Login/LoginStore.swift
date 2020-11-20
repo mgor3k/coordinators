@@ -6,25 +6,41 @@ import Foundation
 import Combine
 
 public class LoginStore: ObservableObject {
+    /// Bind to username input
     @Published public var username = ""
+    
+    /// Bind to password input
     @Published public var password = ""
     
+    /// Use to indicate user when authentication is in progress
     @Published public var isLoading = false
+    
+    /// Use to indicate user is all inputs are complete
     @Published public var isValid = false
     
+    /// Use to indicate if an error occured
     @Published public var error: Login.Error?
     
     private let network: LoginNetworking
     private weak var delegate: LoginDelegate?
     private var subscriptions: Set<AnyCancellable> = []
     
-    public init(network: LoginNetworking, delegate: LoginDelegate) {
+    /// Initializer
+    /// - Parameters:
+    ///   - network: Pass your networking service with the login methods
+    ///   - delegate: Pass your delegate that should handle the navigation
+    public init(
+        network: LoginNetworking,
+        delegate: LoginDelegate) {
         self.network = network
         self.delegate = delegate
         setupBindings()
     }
-    
-    public func authenticate() {
+}
+
+public extension LoginStore {
+    /// Authenticate using binded username + password
+    func authenticate() {
         guard isValid else {
             error = .missingInput
             return
@@ -34,7 +50,6 @@ public class LoginStore: ObservableObject {
         
         let publisher = network
             .authenticate(username: username, password: password)
-            .share()
         
         publisher
             .ignoreOutput()
@@ -57,7 +72,8 @@ public class LoginStore: ObservableObject {
             .store(in: &subscriptions)
     }
     
-    public func navigate(to destination: Login.Navigation) {
+    /// Navigate to different parts of the authentication
+    func navigate(to destination: Login.Navigation) {
         delegate?.navigate(to: destination)
     }
 }

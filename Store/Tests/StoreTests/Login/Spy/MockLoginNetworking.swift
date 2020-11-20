@@ -5,12 +5,15 @@
 import Combine
 import Store
 
-struct MockLoginNetworking: LoginNetworking {
-    let token: String?
-    let error: Login.Error?
+class MockLoginNetworking: LoginNetworking {
+    var token: String?
+    var error: Login.Error?
+    var callCount = 0
     
     func authenticate(username: String, password: String) -> AnyPublisher<String, Login.Error> {
         Future { promise in
+            self.callCount += 1
+            
             if let error = self.error {
                 promise(.failure(error))
             } else {
