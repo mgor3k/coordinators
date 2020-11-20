@@ -3,7 +3,7 @@
 //
 
 import XCTest
-@testable import Store
+import Store
 
 class LoginDelegateSpy: LoginDelegate {
     var didAuthenticateExp: XCTestExpectation?

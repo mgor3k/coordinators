@@ -5,12 +5,17 @@
 import Combine
 import Store
 
-class MockLoginNetworking: LoginNetworking {
+class MockSignupNetworking: SignupNetworking {
     var token: String?
-    var error: Login.Error?
+    var error: Signup.Error?
     var callCount = 0
     
-    func authenticate(username: String, password: String) -> AnyPublisher<String, Login.Error> {
+    func signup(
+        username: String,
+        email: String,
+        password: String)
+    -> AnyPublisher<String, Signup.Error> {
+        
         Future { promise in
             self.callCount += 1
             

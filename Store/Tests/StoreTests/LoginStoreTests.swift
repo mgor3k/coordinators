@@ -54,7 +54,6 @@ final class LoginStoreTests: XCTestCase {
     
     func test_isLoading() {
         delegate.didAuthenticateExp = expectation(description: "expecting to finish")
-        networking.token = "123"
         
         sut.username = "some username"
         sut.password = "some password"
