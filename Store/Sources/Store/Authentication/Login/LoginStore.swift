@@ -12,7 +12,7 @@ public class LoginStore: ObservableObject {
     @Published public var isLoading = false
     @Published public var isValid = false
     
-    @Published public var error: Error?
+    @Published public var error: Login.Error?
     
     private let network: LoginNetworking
     private weak var delegate: LoginDelegate?
@@ -25,6 +25,11 @@ public class LoginStore: ObservableObject {
     }
     
     public func authenticate() {
+        guard isValid else {
+            error = .missingInput
+            return
+        }
+        
         isLoading = true
         
         let publisher = network
