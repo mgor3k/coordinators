@@ -60,6 +60,7 @@
 		BFE7A4F1254EF08300E64EA5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */; };
 		BFE93D32256036BD00CB4351 /* StackBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE93D31256036BD00CB4351 /* StackBuilder.swift */; };
 		BFF4D7B42555F373009C93CC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF4D7B32555F373009C93CC /* DetailsViewController.swift */; };
+		BFF7398C256C4491001A8412 /* heart.json in Resources */ = {isa = PBXBuildFile; fileRef = BFF7398B256C4491001A8412 /* heart.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +116,7 @@
 		BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BFE93D31256036BD00CB4351 /* StackBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackBuilder.swift; sourceTree = "<group>"; };
 		BFF4D7B32555F373009C93CC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		BFF7398B256C4491001A8412 /* heart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = heart.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				BFD46DA72559CDA300DD871E /* success.json */,
+				BFF7398B256C4491001A8412 /* heart.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 			files = (
 				BFBD1D8E254C88FE00E6B750 /* LaunchScreen.storyboard in Resources */,
 				BFD46DA82559CDA300DD871E /* success.json in Resources */,
+				BFF7398C256C4491001A8412 /* heart.json in Resources */,
 				BFBD1D8B254C88FE00E6B750 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
