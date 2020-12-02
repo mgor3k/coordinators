@@ -6,24 +6,34 @@ import Foundation
 
 public class SettingsStore {
     private weak var delegate: SettingsDelegate?
-        
+    private let userDefaults: UserDefaults
+    
     public let models: [SettingsGroup]
     
-    public init(delegate: SettingsDelegate) {
+    public init(userDefaults: UserDefaults, delegate: SettingsDelegate) {
+        self.userDefaults = userDefaults
         self.delegate = delegate
         
         models = [
             SettingsGroup(name: "General", Settings: [
-                Settings(name: "Thing"),
-                Settings(name: "Second thing")
+                .thing,
+                .secondThing
             ]),
             SettingsGroup(name: "Security", Settings: [
-                Settings(name: "One thing")
+                .otherThing
             ])
         ]
     }
     
     public func selectSettings(_ settings: Settings) {
         delegate?.didSelectSettings(settings)
+    }
+    
+    public func toggleSettings(_ settings: Settings, isOn: Bool) {
+        userDefaults.setValue(isOn, forKey: settings.rawValue)
+    }
+    
+    public func isSettingToggled(_ setting: Settings) -> Bool {
+        userDefaults.bool(forKey: setting.rawValue)
     }
 }

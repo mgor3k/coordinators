@@ -11,6 +11,8 @@
 		BF08E7B525571ACC006F7700 /* HomeSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF08E7B425571ACC006F7700 /* HomeSuccessViewController.swift */; };
 		BF0E21C22567BB2600948CE5 /* Store in Frameworks */ = {isa = PBXBuildFile; productRef = BF0E21C12567BB2600948CE5 /* Store */; };
 		BF0E21C62568039D00948CE5 /* NavigationController+Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0E21C52568039D00948CE5 /* NavigationController+Tab.swift */; };
+		BF10B4922578077E00FAB37E /* Settings+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF10B4912578077E00FAB37E /* Settings+.swift */; };
+		BF10B497257810FB00FAB37E /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF10B496257810FB00FAB37E /* Switch.swift */; };
 		BF1FBB19254C96E900FD3BD0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BF1FBB18254C96E900FD3BD0 /* SnapKit */; };
 		BF3AA691254EFD84006ADE3A /* Trailing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA690254EFD84006ADE3A /* Trailing.swift */; };
 		BF3AA694254EFED1006ADE3A /* PasswordReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA693254EFED1006ADE3A /* PasswordReminderViewController.swift */; };
@@ -67,6 +69,8 @@
 		BF062F63254CB330003E1662 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BF08E7B425571ACC006F7700 /* HomeSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSuccessViewController.swift; sourceTree = "<group>"; };
 		BF0E21C52568039D00948CE5 /* NavigationController+Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationController+Tab.swift"; sourceTree = "<group>"; };
+		BF10B4912578077E00FAB37E /* Settings+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings+.swift"; sourceTree = "<group>"; };
+		BF10B496257810FB00FAB37E /* Switch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch.swift; sourceTree = "<group>"; };
 		BF3AA690254EFD84006ADE3A /* Trailing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trailing.swift; sourceTree = "<group>"; };
 		BF3AA693254EFED1006ADE3A /* PasswordReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordReminderViewController.swift; sourceTree = "<group>"; };
 		BF3AA697254EFF66006ADE3A /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 				BFB7FC75254EFC6900DE13CB /* Buttons */,
 				BF3AA69A254F04A6006ADE3A /* TextFields */,
 				BF5FA6B9254C9A920093BBBD /* ViewController.swift */,
+				BF10B496257810FB00FAB37E /* Switch.swift */,
 				BFE7A4F0254EF08300E64EA5 /* TabBarController.swift */,
 				BF5FA6BC254C9B770093BBBD /* NavigationController.swift */,
 				BF3AA6AF2551E590006ADE3A /* CollectionViewCell.swift */,
@@ -218,6 +223,7 @@
 		BF9E4A2025602DD100BB9059 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				BF10B4912578077E00FAB37E /* Settings+.swift */,
 				BFD46DB0255C6CF600DD871E /* SettingsCompositionalLayout.swift */,
 				BF70264425573E810040221A /* SettingsViewController.swift */,
 			);
@@ -446,6 +452,7 @@
 				BFBD1DA2254C936500E6B750 /* AuthenticationCoordinator.swift in Sources */,
 				BF3AA69C254F04BA006ADE3A /* SecureTextField.swift in Sources */,
 				BFB7FC6D254EF99D00DE13CB /* ProfileViewController.swift in Sources */,
+				BF10B497257810FB00FAB37E /* Switch.swift in Sources */,
 				BFB7FC73254EFC4B00DE13CB /* InlineButton.swift in Sources */,
 				BFB7FC77254EFC9000DE13CB /* RoundedButton.swift in Sources */,
 				BF3AA6A2254F5304006ADE3A /* LoadableRoundedButton.swift in Sources */,
@@ -485,6 +492,7 @@
 				BF3AA698254EFF66006ADE3A /* SignupViewController.swift in Sources */,
 				BF70264925573FAA0040221A /* SettingsCoordinator.swift in Sources */,
 				BF5FA6C0254CA3340093BBBD /* Button.swift in Sources */,
+				BF10B4922578077E00FAB37E /* Settings+.swift in Sources */,
 				BF52695B254CA76800638F23 /* StackItem.swift in Sources */,
 				BF52695E254CA78100638F23 /* Centered.swift in Sources */,
 			);

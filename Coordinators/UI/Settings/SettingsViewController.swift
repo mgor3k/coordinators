@@ -7,6 +7,7 @@ import Store
 
 typealias SettingsDataSource = UICollectionViewDiffableDataSource<SettingsGroup, Settings>
 typealias SettingsSnapshot = NSDiffableDataSourceSnapshot<SettingsGroup, Settings>
+typealias SettingsRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Settings>
 
 class SettingsViewController: ViewController {
     private let collectionView: UICollectionView = {
@@ -39,10 +40,18 @@ class SettingsViewController: ViewController {
 
 private extension SettingsViewController {
     func makeDataSource() -> SettingsDataSource {
-        let registration = UICollectionView.CellRegistration<UICollectionViewListCell, Settings> { cell, indexPath, model in
+        let registration = SettingsRegistration { [weak self] cell, indexPath, model in
             var content = cell.defaultContentConfiguration()
-            content.text = model.name
+            content.text = model.title
             cell.contentConfiguration = content
+            
+            if model.isToggle {
+                self?.configureToggle(forCell: cell, model: model)
+            } else {
+                cell.accessories = [
+                    .disclosureIndicator()
+                ]
+            }
         }
         
         let ds = SettingsDataSource(collectionView: collectionView) { cv, indexPath, model in
@@ -58,6 +67,20 @@ private extension SettingsViewController {
         }
         
         return ds
+    }
+    
+    func configureToggle(forCell cell: UICollectionViewListCell, model: Settings) {
+        let view = Switch(isOn: store.isSettingToggled(model))
+        view.onToggled = { [weak self] isOn in
+            self?.store.toggleSettings(model, isOn: isOn)
+        }
+        let toggle = UICellAccessory.CustomViewConfiguration(
+            customView: view,
+            placement: .trailing(displayed: .always)
+        )
+        cell.accessories = [
+            .customView(configuration: toggle)
+        ]
     }
     
     func applySnapshot() {
@@ -91,6 +114,10 @@ extension SettingsViewController: UICollectionViewDelegate {
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath) {
         let settings = store.models[indexPath.section].Settings[indexPath.item]
-        store.selectSettings(settings)
+        if settings.isToggle {
+            collectionView.deselectItem(at: indexPath, animated: false)
+        } else {
+            store.selectSettings(settings)
+        }
     }
 }

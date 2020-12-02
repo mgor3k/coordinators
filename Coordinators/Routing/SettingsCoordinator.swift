@@ -30,7 +30,10 @@ class SettingsCoordinator: Coordinator {
     }
     
     func start() {
-        let store = SettingsStore(delegate: self)
+        let store = SettingsStore(
+            userDefaults: UserDefaults.standard,
+            delegate: self
+        )
         let vc = factory.makeSettings(store: store)
         navigationController.barColor = .black
         navigationController.viewControllers = [vc]
