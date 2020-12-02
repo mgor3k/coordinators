@@ -23,7 +23,7 @@ class AppCoordinator: Coordinator {
 
 private extension AppCoordinator {
     func showAuthentication() {
-        let nav = NavigationController()
+        let nav = NavigationController(barColor: .white)
         let coordinator = AuthenticationCoordinator(
             navigationController: nav,
             factory: factory,

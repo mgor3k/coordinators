@@ -256,6 +256,7 @@
 		BF9E4A2425602E5A00BB9059 /* Routing */ = {
 			isa = PBXGroup;
 			children = (
+				BFBD1D9D254C926600E6B750 /* AppCoordinator.swift */,
 				BF062F63254CB330003E1662 /* Coordinator.swift */,
 				BFBD1DA1254C936500E6B750 /* AuthenticationCoordinator.swift */,
 				BFB7FC6F254EF9B900DE13CB /* ProfileCoordinator.swift */,
@@ -335,7 +336,6 @@
 			children = (
 				BFBD1D81254C88FA00E6B750 /* AppDelegate.swift */,
 				BFBD1D83254C88FA00E6B750 /* SceneDelegate.swift */,
-				BFBD1D9D254C926600E6B750 /* AppCoordinator.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";

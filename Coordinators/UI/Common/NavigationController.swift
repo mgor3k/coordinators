@@ -6,21 +6,16 @@ import UIKit
 
 class NavigationController: UINavigationController {
     var barColor: UIColor = .white {
-        didSet {
-            navigationBar.largeTitleTextAttributes = [
-                NSAttributedString.Key.foregroundColor: barColor
-            ]
-        }
+        didSet { setBarColor(barColor) }
     }
     
     var onDismiss: (() -> Void)?
     
-    init() {
+    init(barColor: UIColor = .black) {
+        self.barColor = barColor
         super.init(nibName: nil, bundle: nil)
+        setBarColor(barColor)
         navigationBar.prefersLargeTitles = true
-        navigationBar.largeTitleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.white
-        ]
         presentationController?.delegate = self
     }
     
@@ -38,8 +33,17 @@ class NavigationController: UINavigationController {
     }
 }
 
+private extension NavigationController {
+    func setBarColor(_ color: UIColor) {
+        navigationBar.largeTitleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: barColor
+        ]
+    }
+}
+
 extension NavigationController: UIAdaptivePresentationControllerDelegate {
-    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+    func presentationControllerDidDismiss(
+        _ presentationController: UIPresentationController) {
         onDismiss?()
     }
 }
