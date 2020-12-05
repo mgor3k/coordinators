@@ -14,6 +14,9 @@
 		BF10B4922578077E00FAB37E /* Settings+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF10B4912578077E00FAB37E /* Settings+.swift */; };
 		BF10B497257810FB00FAB37E /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF10B496257810FB00FAB37E /* Switch.swift */; };
 		BF1FBB19254C96E900FD3BD0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BF1FBB18254C96E900FD3BD0 /* SnapKit */; };
+		BF32FEDE257BEDD10075B640 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF32FEDD257BEDD10075B640 /* LoginTests.swift */; };
+		BF32FEE9257BF3C10075B640 /* LoginRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF32FEE8257BF3C10075B640 /* LoginRobot.swift */; };
+		BF32FEF0257BF4E20075B640 /* XCUIElement+Wait.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF32FEEF257BF4E20075B640 /* XCUIElement+Wait.swift */; };
 		BF3AA691254EFD84006ADE3A /* Trailing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA690254EFD84006ADE3A /* Trailing.swift */; };
 		BF3AA694254EFED1006ADE3A /* PasswordReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA693254EFED1006ADE3A /* PasswordReminderViewController.swift */; };
 		BF3AA698254EFF66006ADE3A /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AA697254EFF66006ADE3A /* SignupViewController.swift */; };
@@ -38,11 +41,13 @@
 		BF70264925573FAA0040221A /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF70264825573FAA0040221A /* SettingsCoordinator.swift */; };
 		BF70264F255748E10040221A /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF70264E255748E10040221A /* ViewFactory.swift */; };
 		BF9E4A2F25602FA500BB9059 /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9E4A2D25602FA500BB9059 /* HomeSection.swift */; };
+		BFABBF6E257BFC6C00E93152 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFABBF6D257BFC6C00E93152 /* Login.swift */; };
 		BFB7FC65254EF75E00DE13CB /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7FC64254EF75E00DE13CB /* UIWindow+.swift */; };
 		BFB7FC6D254EF99D00DE13CB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7FC6C254EF99D00DE13CB /* ProfileViewController.swift */; };
 		BFB7FC70254EF9B900DE13CB /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7FC6F254EF9B900DE13CB /* ProfileCoordinator.swift */; };
 		BFB7FC73254EFC4B00DE13CB /* InlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7FC72254EFC4B00DE13CB /* InlineButton.swift */; };
 		BFB7FC77254EFC9000DE13CB /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7FC76254EFC9000DE13CB /* RoundedButton.swift */; };
+		BFB82AB9257BF8D400720808 /* LoginRobot+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB82AB8257BF8D400720808 /* LoginRobot+Keys.swift */; };
 		BFBD1D82254C88FA00E6B750 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD1D81254C88FA00E6B750 /* AppDelegate.swift */; };
 		BFBD1D84254C88FA00E6B750 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD1D83254C88FA00E6B750 /* SceneDelegate.swift */; };
 		BFBD1D86254C88FA00E6B750 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD1D85254C88FA00E6B750 /* HomeViewController.swift */; };
@@ -65,12 +70,27 @@
 		BFF7398C256C4491001A8412 /* heart.json in Resources */ = {isa = PBXBuildFile; fileRef = BFF7398B256C4491001A8412 /* heart.json */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		BF32FEE0257BEDD10075B640 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFBD1D76254C88F900E6B750 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BFBD1D7D254C88FA00E6B750;
+			remoteInfo = Coordinators;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		BF062F63254CB330003E1662 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BF08E7B425571ACC006F7700 /* HomeSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSuccessViewController.swift; sourceTree = "<group>"; };
 		BF0E21C52568039D00948CE5 /* NavigationController+Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationController+Tab.swift"; sourceTree = "<group>"; };
 		BF10B4912578077E00FAB37E /* Settings+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings+.swift"; sourceTree = "<group>"; };
 		BF10B496257810FB00FAB37E /* Switch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch.swift; sourceTree = "<group>"; };
+		BF32FEDB257BEDD10075B640 /* CoordinatorsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoordinatorsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF32FEDD257BEDD10075B640 /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
+		BF32FEDF257BEDD10075B640 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF32FEE8257BF3C10075B640 /* LoginRobot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRobot.swift; sourceTree = "<group>"; };
+		BF32FEEF257BF4E20075B640 /* XCUIElement+Wait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Wait.swift"; sourceTree = "<group>"; };
 		BF3AA690254EFD84006ADE3A /* Trailing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trailing.swift; sourceTree = "<group>"; };
 		BF3AA693254EFED1006ADE3A /* PasswordReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordReminderViewController.swift; sourceTree = "<group>"; };
 		BF3AA697254EFF66006ADE3A /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -95,11 +115,13 @@
 		BF70264825573FAA0040221A /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		BF70264E255748E10040221A /* ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
 		BF9E4A2D25602FA500BB9059 /* HomeSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSection.swift; sourceTree = "<group>"; };
+		BFABBF6D257BFC6C00E93152 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		BFB7FC64254EF75E00DE13CB /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
 		BFB7FC6C254EF99D00DE13CB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BFB7FC6F254EF9B900DE13CB /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		BFB7FC72254EFC4B00DE13CB /* InlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineButton.swift; sourceTree = "<group>"; };
 		BFB7FC76254EFC9000DE13CB /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		BFB82AB8257BF8D400720808 /* LoginRobot+Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginRobot+Keys.swift"; sourceTree = "<group>"; };
 		BFBD1D7E254C88FA00E6B750 /* Coordinators.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coordinators.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFBD1D81254C88FA00E6B750 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFBD1D83254C88FA00E6B750 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +146,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BF32FED8257BEDD10075B640 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BFBD1D7B254C88FA00E6B750 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -158,6 +187,33 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF32FEDC257BEDD10075B640 /* CoordinatorsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BF32FEEE257BF4D40075B640 /* Extensions */,
+				BF32FEE7257BF3450075B640 /* Robots */,
+				BF32FEDD257BEDD10075B640 /* LoginTests.swift */,
+				BF32FEDF257BEDD10075B640 /* Info.plist */,
+			);
+			path = CoordinatorsUITests;
+			sourceTree = "<group>";
+		};
+		BF32FEE7257BF3450075B640 /* Robots */ = {
+			isa = PBXGroup;
+			children = (
+				BFB82AB7257BF8C300720808 /* Login */,
+			);
+			path = Robots;
+			sourceTree = "<group>";
+		};
+		BF32FEEE257BF4D40075B640 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BF32FEEF257BF4E20075B640 /* XCUIElement+Wait.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		BF3AA69A254F04A6006ADE3A /* TextFields */ = {
@@ -295,10 +351,21 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		BFB82AB7257BF8C300720808 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BFABBF6D257BFC6C00E93152 /* Login.swift */,
+				BF32FEE8257BF3C10075B640 /* LoginRobot.swift */,
+				BFB82AB8257BF8D400720808 /* LoginRobot+Keys.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		BFBD1D75254C88F900E6B750 = {
 			isa = PBXGroup;
 			children = (
 				BFBD1D80254C88FA00E6B750 /* Coordinators */,
+				BF32FEDC257BEDD10075B640 /* CoordinatorsUITests */,
 				BFBD1D7F254C88FA00E6B750 /* Products */,
 				BF0E216E2567315B00948CE5 /* Frameworks */,
 			);
@@ -308,6 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				BFBD1D7E254C88FA00E6B750 /* Coordinators.app */,
+				BF32FEDB257BEDD10075B640 /* CoordinatorsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -369,6 +437,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BF32FEDA257BEDD10075B640 /* CoordinatorsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF32FEE4257BEDD10075B640 /* Build configuration list for PBXNativeTarget "CoordinatorsUITests" */;
+			buildPhases = (
+				BF32FED7257BEDD10075B640 /* Sources */,
+				BF32FED8257BEDD10075B640 /* Frameworks */,
+				BF32FED9257BEDD10075B640 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF32FEE1257BEDD10075B640 /* PBXTargetDependency */,
+			);
+			name = CoordinatorsUITests;
+			productName = CoordinatorsUITests;
+			productReference = BF32FEDB257BEDD10075B640 /* CoordinatorsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		BFBD1D7D254C88FA00E6B750 /* Coordinators */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BFBD1D92254C88FE00E6B750 /* Build configuration list for PBXNativeTarget "Coordinators" */;
@@ -397,9 +483,13 @@
 		BFBD1D76254C88F900E6B750 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1210;
+				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
+					BF32FEDA257BEDD10075B640 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = BFBD1D7D254C88FA00E6B750;
+					};
 					BFBD1D7D254C88FA00E6B750 = {
 						CreatedOnToolsVersion = 12.1;
 					};
@@ -423,11 +513,19 @@
 			projectRoot = "";
 			targets = (
 				BFBD1D7D254C88FA00E6B750 /* Coordinators */,
+				BF32FEDA257BEDD10075B640 /* CoordinatorsUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BF32FED9257BEDD10075B640 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BFBD1D7C254C88FA00E6B750 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -442,6 +540,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BF32FED7257BEDD10075B640 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF32FEE9257BF3C10075B640 /* LoginRobot.swift in Sources */,
+				BFABBF6E257BFC6C00E93152 /* Login.swift in Sources */,
+				BF32FEF0257BF4E20075B640 /* XCUIElement+Wait.swift in Sources */,
+				BFB82AB9257BF8D400720808 /* LoginRobot+Keys.swift in Sources */,
+				BF32FEDE257BEDD10075B640 /* LoginTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BFBD1D7A254C88FA00E6B750 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -500,6 +610,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		BF32FEE1257BEDD10075B640 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BFBD1D7D254C88FA00E6B750 /* Coordinators */;
+			targetProxy = BF32FEE0257BEDD10075B640 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		BFBD1D8C254C88FE00E6B750 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -512,6 +630,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		BF32FEE2257BEDD10075B640 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CoordinatorsUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gorecki.CoordinatorsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Coordinators;
+			};
+			name = Debug;
+		};
+		BF32FEE3257BEDD10075B640 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CoordinatorsUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gorecki.CoordinatorsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Coordinators;
+			};
+			name = Release;
+		};
 		BFBD1D90254C88FE00E6B750 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -667,6 +823,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BF32FEE4257BEDD10075B640 /* Build configuration list for PBXNativeTarget "CoordinatorsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF32FEE2257BEDD10075B640 /* Debug */,
+				BF32FEE3257BEDD10075B640 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BFBD1D79254C88F900E6B750 /* Build configuration list for PBXProject "Coordinators" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
